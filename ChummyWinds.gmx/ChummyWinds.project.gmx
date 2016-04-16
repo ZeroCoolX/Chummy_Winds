@@ -8,11 +8,11 @@
   <sprites name="sprites">
     <sprites name="Player">
       <sprite>sprites\spr_player</sprite>
-      <sprite>sprites\sprite4</sprite>
     </sprites>
     <sprites name="Baddies">
       <sprite>sprites\spr_enemy</sprite>
       <sprite>sprites\spr_square</sprite>
+      <sprite>sprites\spr_triangle</sprite>
     </sprites>
     <sprites name="Enviroment">
       <sprite>sprites\spr_wall</sprite>
@@ -46,6 +46,11 @@
       <script>scripts\scr_view_zoom.gml</script>
       <script>scripts\scr_move_view.gml</script>
     </scripts>
+    <scripts name="TriangleBaddie">
+      <script>scripts\scr_triangle_idle.gml</script>
+      <script>scripts\scr_triangle_get_face.gml</script>
+      <script>scripts\scr_triangle_move.gml</script>
+    </scripts>
   </scripts>
   <objects name="objects">
     <object>objects\LifeformParent</object>
@@ -55,6 +60,7 @@
     <objects name="Baddies">
       <object>objects\Enemy</object>
       <object>objects\Square</object>
+      <object>objects\Triangle</object>
     </objects>
     <objects name="Control">
       <object>objects\Input</object>

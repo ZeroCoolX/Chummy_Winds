@@ -634,7 +634,11 @@
     <option_xbone_title_id></option_xbone_title_id>
   </Options>
   <ConfigConstants>
-    <constants number="4">
+    <constants number="8">
+      <constant name="TRIANGLE_UPLEFT">0</constant>
+      <constant name="TRIANGLE_UPRIGHT">1</constant>
+      <constant name="TRIANGLE_DOWNLEFT">2</constant>
+      <constant name="TRIANGLE_DOWNRIGHT">3</constant>
       <constant name="SQUARE_LEFT">0</constant>
       <constant name="SQUARE_UP">1</constant>
       <constant name="SQUARE_RIGHT">2</constant>

@@ -2,7 +2,7 @@
 
 //set the friction to 0
 friction = 0;
-
+image_speed = .3;
 if(dash_key){
         state = scr_dash_state;
         alarm[0] = room_speed / 6; //frames per second - 30 for now. 8 is arbitrary
@@ -42,4 +42,7 @@ if(point_distance(x, y, target.x, target.y) < 32){
 //Don't over accelerate past max spd
 if(speed > spd){
     speed = spd;
+}
+if(hspd != 0){
+    image_xscale = sign(hspd)
 }

@@ -3,7 +3,7 @@
   <type>0</type>
   <xorig>16</xorig>
   <yorigin>16</yorigin>
-  <colkind>2</colkind>
+  <colkind>1</colkind>
   <coltolerance>0</coltolerance>
   <sepmasks>0</sepmasks>
   <bboxmode>0</bboxmode>
@@ -20,6 +20,6 @@
   <width>128</width>
   <height>128</height>
   <frames>
-    <frame index="0">images\spr_enemy_0.png</frame>
+    <frame index="0">images\spr_triangle_0.png</frame>
   </frames>
 </sprite>
