@@ -42,6 +42,8 @@
       <script>scripts\scr_square_get_face.gml</script>
       <script>scripts\scr_square_move.gml</script>
     </scripts>
+    <script>scripts\scr_move_view.gml</script>
+    <script>scripts\scr_view_zoom.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\LifeformParent</object>
@@ -52,18 +54,18 @@
       <object>objects\Enemy</object>
       <object>objects\Square</object>
     </objects>
-    <objects name="Helpers">
+    <objects name="Control">
       <object>objects\Input</object>
       <object>objects\Mouse</object>
+      <object>objects\ViewController</object>
+      <object>objects\ViewShake</object>
     </objects>
     <objects name="Enviroment">
       <object>objects\Wall</object>
     </objects>
-    <object>objects\ViewController</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_one</room>
-    <room>rooms\rm_large_test</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

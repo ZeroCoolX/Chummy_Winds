@@ -2,7 +2,7 @@
 <object>
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
-  <visible>0</visible>
+  <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
@@ -25,14 +25,37 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Initialize the view
-//Initialize camera
-intensity = 0;
-///Move to player
-if(instance_exists(Player)){
-    x = Player.x;
-    y = Player.y;
-}
+            <string>///create screen shake
+cur_view_xview = view_xview;
+cur_view_yview = view_yview;
+
+show_debug_message("first x = " + string(view_xview) + " first y = " + string(view_yview));
+alarm[0] = 30;//kill itself after 30 frames
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Player.should_shake = 0;
+
+instance_destroy();
 </string>
           </argument>
         </arguments>
@@ -55,23 +78,9 @@ if(instance_exists(Player)){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Move 10% towards the player
-scr_move_view();
-//creates a smooth camera tracking so it snot 100% on the player!
+            <string>///move the view 
 
-if(instance_exists(Player)){
-    x += (Player.x - x) * 0.3;
-    y += (Player.y - y) * 0.3;
-    
-    //shes there...just not 100% lol
-    /*shake_xoffset = round(random(2) + random(-2));//2 for right now
-    shake_yoffset = round(random(2) + random(-2));
-    x += shake_xoffset;
-    y += shake_yoffset;
-    view_xview[0] = x;
-    view_yview[0] = y;
-    */
-}
+Player.should_shake = 1;
 </string>
           </argument>
         </arguments>
