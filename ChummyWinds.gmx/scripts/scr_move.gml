@@ -36,7 +36,6 @@ if(place_meeting(x, y+vspd, collision_object)){
 y += vspd;
 
 if(point_distance(x, y, target.x, target.y) < 5){
-show_debug_message("idle bitch");
     state = scr_idle;
 }
 

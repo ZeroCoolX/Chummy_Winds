@@ -59,9 +59,11 @@
     <objects name="Enviroment">
       <object>objects\Wall</object>
     </objects>
+    <object>objects\ViewController</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_one</room>
+    <room>rooms\rm_large_test</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
