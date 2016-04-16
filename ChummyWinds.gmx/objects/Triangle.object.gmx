@@ -75,6 +75,7 @@ state = scr_triangle_get_face;
           <argument>
             <kind>1</kind>
             <string>///execute state
+depth = -y;
 script_execute(state);
 </string>
           </argument>

@@ -10,7 +10,7 @@
       <sprite>sprites\spr_player</sprite>
     </sprites>
     <sprites name="Baddies">
-      <sprite>sprites\spr_enemy</sprite>
+      <sprite>sprites\spr_circle</sprite>
       <sprite>sprites\spr_square</sprite>
       <sprite>sprites\spr_triangle</sprite>
     </sprites>
@@ -28,6 +28,7 @@
       <script>scripts\scr_move.gml</script>
       <script>scripts\scr_idle.gml</script>
       <script>scripts\scr_dash_state.gml</script>
+      <script>scripts\scr_shape.gml</script>
     </scripts>
     <scripts name="Baddies">
       <script>scripts\scr_enemy_init.gml</script>

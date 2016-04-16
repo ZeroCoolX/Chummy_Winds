@@ -3,7 +3,7 @@ var amount = 1+argument[0];
 var view = argument[1];
 
 //limit the zoom
-if((view_wview[view] <= 64 && amount < 1) || (view_wview[view] >=1280 && amount > 1)){
+if((view_wview[view] <= 1280 && amount < 1) || (view_wview[view] >= 1600 && amount > 1)){
     exit;//get out of script
 }
 

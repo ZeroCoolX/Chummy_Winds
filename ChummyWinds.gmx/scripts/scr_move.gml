@@ -1,11 +1,19 @@
+
 ///scr_move(m_speed, fric)
 
 //set the friction to 0
 friction = 0;
-image_speed = .3;
-if(dash_key){
-        state = scr_dash_state;
-        alarm[0] = room_speed / 6; //frames per second - 30 for now. 8 is arbitrary
+image_speed = .35;
+
+///shape changing
+if(shape_one){
+   scr_shape(spr_triangle);
+}
+if(shape_two){
+   scr_shape(spr_circle);
+}
+if(shape_three){
+   scr_shape(spr_square);
 }
 
 var collision_object = Wall;
@@ -34,6 +42,11 @@ if(place_meeting(x, y+vspd, collision_object)){
   vspd = 0;
 }
 y += vspd;
+
+if(dash_key){
+        state = scr_dash_state;
+        alarm[0] = room_speed / 6; //frames per second - 30 for now. 8 is arbitrary
+}
 
 if(point_distance(x, y, target.x, target.y) < 32){
     state = scr_idle;
