@@ -6,25 +6,59 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\spr_player</sprite>
-    <sprite>sprites\spr_enemy</sprite>
-    <sprite>sprites\spr_wall</sprite>
+    <sprites name="Player">
+      <sprite>sprites\spr_player</sprite>
+      <sprite>sprites\sprite4</sprite>
+    </sprites>
+    <sprites name="Baddies">
+      <sprite>sprites\spr_enemy</sprite>
+      <sprite>sprites\spr_square</sprite>
+    </sprites>
+    <sprites name="Enviroment">
+      <sprite>sprites\spr_wall</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\scr_init.gml</script>
-    <script>scripts\scr_move.gml</script>
-    <script>scripts\scr_idle.gml</script>
+    <scripts name="Player">
+      <script>scripts\scr_init.gml</script>
+      <script>scripts\scr_move.gml</script>
+      <script>scripts\scr_idle.gml</script>
+      <script>scripts\scr_dash_state.gml</script>
+    </scripts>
+    <scripts name="Baddies">
+      <script>scripts\scr_enemy_init.gml</script>
+      <script>scripts\scr_enemy_move.gml</script>
+      <script>scripts\scr_enemy_idle.gml</script>
+    </scripts>
+    <scripts name="Helpers">
+      <script>scripts\scr_get_input.gml</script>
+    </scripts>
+    <scripts name="SquareBaddie">
+      <script>scripts\scr_square_idle.gml</script>
+      <script>scripts\scr_square_get_face.gml</script>
+      <script>scripts\scr_square_move.gml</script>
+    </scripts>
   </scripts>
   <objects name="objects">
-    <object>objects\Player</object>
-    <object>objects\Enemy</object>
-    <object>objects\Wall</object>
     <object>objects\LifeformParent</object>
-    <object>objects\Mouse</object>
+    <objects name="Player">
+      <object>objects\Player</object>
+    </objects>
+    <objects name="Baddies">
+      <object>objects\Enemy</object>
+      <object>objects\Square</object>
+    </objects>
+    <objects name="Helpers">
+      <object>objects\Input</object>
+      <object>objects\Mouse</object>
+    </objects>
+    <objects name="Enviroment">
+      <object>objects\Wall</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_one</room>
