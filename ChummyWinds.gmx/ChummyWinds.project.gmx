@@ -42,8 +42,10 @@
       <script>scripts\scr_square_get_face.gml</script>
       <script>scripts\scr_square_move.gml</script>
     </scripts>
-    <script>scripts\scr_move_view.gml</script>
-    <script>scripts\scr_view_zoom.gml</script>
+    <scripts name="Control">
+      <script>scripts\scr_view_zoom.gml</script>
+      <script>scripts\scr_move_view.gml</script>
+    </scripts>
   </scripts>
   <objects name="objects">
     <object>objects\LifeformParent</object>
@@ -58,7 +60,6 @@
       <object>objects\Input</object>
       <object>objects\Mouse</object>
       <object>objects\ViewController</object>
-      <object>objects\ViewShake</object>
     </objects>
     <objects name="Enviroment">
       <object>objects\Wall</object>

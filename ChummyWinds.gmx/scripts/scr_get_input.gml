@@ -1,16 +1,20 @@
 
 ///scr_get_input
-right_key = keyboard_check(ord('D'));
-left_key = keyboard_check(ord('A'));
-up_key = keyboard_check(ord('W'));
-down_key = keyboard_check(ord('S'));
-dash_key = keyboard_check_pressed(ord('C'));
-attack_key = keyboard_check_pressed(ord('X'));
-pause_key = keyboard_check_pressed(ord('Z'));
+//gotta have it so like when they press a certain "shapeshift" function they are put 
+//into a special state so if they collide with an enemy while in that certian state its iether good or bad for them
+shape_one = keyboard_check_pressed(ord('A'));
+shape_two = keyboard_check(ord('S'));
+shape_three = keyboard_check(ord('D'));
+shape_four = keyboard_check(ord('F'));
+shape_five = keyboard_check_pressed(ord('G'));
+
+dash_key = keyboard_check_pressed(vk_space);
+
+//unnecessary atm
 
 // Get the axis
-xaxis = (right_key - left_key);
-yaxis = (down_key - up_key);
+/*xaxis = (right_key - left_key);
+yaxis = (down_key - up_key);*/
 /*
 //check for gamepad input
 if (gamepad_is_connected(0)){

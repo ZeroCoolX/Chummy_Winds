@@ -26,11 +26,13 @@
           <argument>
             <kind>1</kind>
             <string>///create screen shake
+/*
 cur_view_xview = view_xview;
 cur_view_yview = view_yview;
 
 show_debug_message("first x = " + string(view_xview) + " first y = " + string(view_yview));
 alarm[0] = 30;//kill itself after 30 frames
+*/
 </string>
           </argument>
         </arguments>
@@ -53,9 +55,9 @@ alarm[0] = 30;//kill itself after 30 frames
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>Player.should_shake = 0;
+            <string>//Player.should_shake = 0;
 
-instance_destroy();
+//instance_destroy();
 </string>
           </argument>
         </arguments>
@@ -80,7 +82,7 @@ instance_destroy();
             <kind>1</kind>
             <string>///move the view 
 
-Player.should_shake = 1;
+//Player.should_shake = 1;
 </string>
           </argument>
         </arguments>

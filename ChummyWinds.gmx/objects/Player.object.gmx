@@ -27,11 +27,13 @@
             <kind>1</kind>
             <string>event_inherited();
 
+
+
 hspd = 0;
 vspd = 0;
 state = 0;
 should_shake = 0;
-
+image_blend = make_colour_rgb(220, 150,150);
 target = Mouse;
 scr_get_input();
 state = scr_init(Wall);

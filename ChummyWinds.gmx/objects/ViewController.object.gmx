@@ -26,8 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>///Initialize the view
-//Initialize camera
-intensity = 0;
+
 ///Move to player
 if(instance_exists(Player)){
     x = Player.x;
@@ -62,15 +61,7 @@ scr_move_view();
 if(instance_exists(Player)){
     x += (Player.x - x) * 0.3;
     y += (Player.y - y) * 0.3;
-    
-    //shes there...just not 100% lol
-    /*shake_xoffset = round(random(2) + random(-2));//2 for right now
-    shake_yoffset = round(random(2) + random(-2));
-    x += shake_xoffset;
-    y += shake_yoffset;
-    view_xview[0] = x;
-    view_yview[0] = y;
-    */
+
 }
 </string>
           </argument>
