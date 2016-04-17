@@ -19,7 +19,7 @@ var collision_object = Wall;
  vspd = lengthdir_y(len, dash_dir)*3;
  
  //Horizontal Collisions
- if(place_meeting(x+hspd, y, collision_object)){
+ if(cur_shape == SHAPE_NONE && place_meeting(x+hspd, y, collision_object)){
      while(!place_meeting(x+sign(len), y, collision_object)){
        x += sign(hspd);//lengthdir_x(len, dir)*3;
      }
@@ -30,7 +30,7 @@ var collision_object = Wall;
  
  
  //Vertical Collisions
- if(place_meeting(x, y+vspd, collision_object)){
+ if(cur_shape == SHAPE_NONE && place_meeting(x, y+vspd, collision_object)){
      while(!place_meeting(x, y+sign(len), collision_object)){
          y += sign(vspd); //lengthdir_y(len, dir)*3;
      }

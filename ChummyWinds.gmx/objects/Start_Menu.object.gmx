@@ -2,7 +2,7 @@
 <object>
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
-  <visible>-1</visible>
+  <visible>0</visible>
   <depth>0</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
@@ -27,11 +27,11 @@
             <kind>1</kind>
             <string>// Initialize the Menu
 title = "MAIN MENU";
-
+SelectStart.sprite_index = spr_select_start;
+SelectHowTo.sprite_index = -1;
 option[0] = "[START GAME]";
-///option[1] = "[SETTINGS]";
-///option[2] = "[CONTROLS]";
-///option[3] = "[CREDITS]";
+option[1] = "[CONTROLS]";
+///option[2] = "[CREDITS]";
 
 
 //Menu Index
@@ -84,6 +84,16 @@ menu_index = 0;
             <string>/// Control The Menu
 if (alarm[0] &lt;= 0) {
    if (keyboard_check_pressed(vk_down)) {
+       if (SelectStart.sprite_index == -1) {
+           SelectStart.sprite_index = spr_select_start;           
+       } else {
+           SelectStart.sprite_index = -1;
+       }
+       if (SelectHowTo.sprite_index == -1) {
+           SelectHowTo.sprite_index = spr_select_how_to;           
+       } else {
+           SelectHowTo.sprite_index = -1;
+       }      
        if (menu_index &lt; array_length_1d(option) -1) {
            menu_index++;
        } else {
@@ -95,6 +105,16 @@ if (alarm[0] &lt;= 0) {
    
 
    if (keyboard_check_pressed(vk_up)) {
+        if (SelectStart.sprite_index == -1) {
+           SelectStart.sprite_index = spr_select_start;           
+       } else {
+           SelectStart.sprite_index = -1;
+       }
+       if (SelectHowTo.sprite_index == -1) {
+           SelectHowTo.sprite_index = spr_select_how_to;           
+       } else {
+           SelectHowTo.sprite_index = -1;
+       }       
        if (menu_index &gt; 0) {
            menu_index--;
        } else {
@@ -105,55 +125,21 @@ if (alarm[0] &lt;= 0) {
    }
    
    
-   if ( keyboard_check_pressed(vk_enter)) {
+   if ( keyboard_check_pressed(vk_enter) || keyboard_check_pressed(vk_space)) {
        switch (menu_index) {
                
            case 0:
            room_goto(rm_one);
-
+           break;
+            
+           case 1:
+           room_goto(rm_control);
            break;
            
            default:
                break;
            }   
        }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="64">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Draw The Menu
-var xx = display_get_gui_width()/2;
-var yy = display_get_gui_height()/2;
-draw_set_halign(fa_center);
-draw_text(xx, yy-64, title);
-
-for (var i=0; i&lt;=array_length_1d(option) -1; i++) {
-   draw_set_color(c_gray);
-   if (i == menu_index) {
-       draw_set_colour(c_white);
-   }
-   draw_text(xx, yy+(i*32), option[i]);
-}
-draw_set_colour(c_white);
-draw_set_colour(fa_left);
 </string>
           </argument>
         </arguments>

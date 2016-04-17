@@ -3,7 +3,7 @@
 //set the friction to 0
 friction = 0;
 
-var collision_object = Wall;
+var collision_object = Circle;
 
 direction = point_direction(x, y, target.x, target.y);
 
@@ -17,12 +17,6 @@ if(attack_dist < 300){
 var hspd =  lengthdir_x(attack_spd,direction);
 var vspd = lengthdir_y(attack_spd,direction);
 
-if(place_meeting(x+hspd, y, Circle)){
-   collision_object = Circle;
-}else{
-   collision_object = Wall;
-}
-
 //Horizontal Collisions
 if(place_meeting(x+hspd, y, collision_object)){
  while(!place_meeting(x+sign(hspd), y, collision_object)){
@@ -31,12 +25,6 @@ if(place_meeting(x+hspd, y, collision_object)){
  hspd = 0;//if there is something right, set hspd to 0
 }
 x += hspd;
-
-if(place_meeting(x, y+vspd, Circle)){
-   collision_object = Circle;
-}else{
-   collision_object = Wall;
-}
 
 //Vertical Collisions
 if(place_meeting(x, y+vspd, collision_object)){

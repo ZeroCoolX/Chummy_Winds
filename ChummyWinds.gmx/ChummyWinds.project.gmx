@@ -14,6 +14,7 @@
         <sprite>sprites\spr_player_right</sprite>
         <sprite>sprites\spr_player_death</sprite>
         <sprite>sprites\spr_player_death_trap</sprite>
+        <sprite>sprites\spr_shadow</sprite>
       </sprites>
       <sprites name="Triangle">
         <sprite>sprites\spr_p_triangle_down</sprite>
@@ -43,6 +44,13 @@
       <sprite>sprites\spr_pencil</sprite>
       <sprite>sprites\spr_clip</sprite>
       <sprite>sprites\spr_mouse</sprite>
+      <sprite>sprites\spr_select_top</sprite>
+      <sprite>sprites\spr_select_bottom</sprite>
+      <sprite>sprites\spr_select_start</sprite>
+      <sprite>sprites\spr_select_how_to</sprite>
+      <sprite>sprites\pen</sprite>
+      <sprite>sprites\red_meter</sprite>
+      <sprite>sprites\blue_meter</sprite>
     </sprites>
     <sprites name="Stats">
       <sprite>sprites\spr_deplete</sprite>
@@ -53,6 +61,9 @@
   </sprites>
   <backgrounds name="background">
     <background>background\grid</background>
+    <background>background\pause</background>
+    <background>background\start</background>
+    <background>background\controls</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -79,6 +90,7 @@
     </scripts>
     <scripts name="Helpers">
       <script>scripts\scr_get_input.gml</script>
+      <script>scripts\scr_spawn_baddies.gml</script>
     </scripts>
     <scripts name="SquareBaddie">
       <script>scripts\scr_square_idle.gml</script>
@@ -116,15 +128,21 @@
       <object>objects\Wall</object>
       <object>objects\Trap</object>
       <object>objects\Pause_menu</object>
+      <object>objects\ControlMenu</object>
       <object>objects\Start_Menu</object>
       <object>objects\Pencil</object>
       <object>objects\PaperClip</object>
+      <object>objects\SelectTop</object>
+      <object>objects\SelectBottom</object>
+      <object>objects\SelectStart</object>
+      <object>objects\SelectHowTo</object>
     </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_start</room>
     <room>rooms\rm_one</room>
     <room>rooms\rm_pause</room>
+    <room>rooms\rm_control</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

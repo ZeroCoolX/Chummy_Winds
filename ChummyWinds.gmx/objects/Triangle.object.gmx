@@ -53,9 +53,13 @@ state = scr_triangle_get_face;
           <argument>
             <kind>1</kind>
             <string>///Destroy Event
-xr = irandom_range(2, 2047);
-yr = irandom_range(2, 2047);
-
+while(true){
+       xr = irandom_range(10, room_width);
+       yr = irandom_range(10, room_height);
+       if(!place_meeting(xr, yr, Wall) &amp;&amp; !place_meeting(xr, yr, Player)){
+           break;
+       }
+}
 if(PlayerStats.kills &lt; 50){
    instance_create(xr, yr, Triangle);
 }

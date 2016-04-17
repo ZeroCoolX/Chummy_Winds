@@ -27,7 +27,8 @@
             <kind>1</kind>
             <string>/// Initialize the Menu
 title = "GAME PAUSED";
-
+SelectTop.sprite_index = spr_select_top;
+SelectBottom.sprite_index = -1;
 option[0] = "[RETURN]";
 option[1] = "[QUIT]";
 //option[2] = "Save";
@@ -82,7 +83,18 @@ menu_index = 0;
             <kind>1</kind>
             <string>/// Control The Menu
 if (alarm[0] &lt;= 0) {
+
    if (Input.down_key) {
+       if (SelectTop.sprite_index == -1) {
+           SelectTop.sprite_index = spr_select_top;           
+       } else {
+           SelectTop.sprite_index = -1;
+       }
+       if (SelectBottom.sprite_index == -1) {
+           SelectBottom.sprite_index = spr_select_bottom;           
+       } else {
+           SelectBottom.sprite_index = -1;
+       }   
        if (menu_index &lt; array_length_1d(option) -1) {
            menu_index++;
        } else {
@@ -94,6 +106,16 @@ if (alarm[0] &lt;= 0) {
    
 
    if (Input.up_key) {
+       if (SelectTop.sprite_index == -1) {
+           SelectTop.sprite_index = spr_select_top;           
+       } else {
+           SelectTop.sprite_index = -1;
+       }
+       if (SelectBottom.sprite_index == -1) {
+           SelectBottom.sprite_index = spr_select_bottom;           
+       } else {
+           SelectBottom.sprite_index = -1;
+       }   
        if (menu_index &gt; 0) {
            menu_index--;
        } else {
@@ -124,43 +146,6 @@ if (alarm[0] &lt;= 0) {
            Input.enter_key = false;
           
        }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="64">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Draw The Menu
-var xx = display_get_gui_width()/2;
-var yy = display_get_gui_height()/2;
-draw_set_halign(fa_center);
-draw_text(xx, yy-64, title);
-
-for (var i=0; i&lt;=array_length_1d(option) -1; i++) {
-   draw_set_color(c_gray);
-   if (i == menu_index) {
-       draw_set_colour(c_white);
-   }
-   draw_text(xx, yy+(i*32), option[i]);
-}
-draw_set_colour(c_white);
-draw_set_colour(fa_left);
 </string>
           </argument>
         </arguments>
