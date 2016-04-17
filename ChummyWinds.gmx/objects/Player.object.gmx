@@ -198,7 +198,14 @@ state = scr_move;
           <argument>
             <kind>1</kind>
             <string>//Step Event
-depth = -y;
+if(cur_shape == SHAPE_NONE){
+    depth = -y;
+}else{
+    depth = 50;
+}
+x = clamp(x, 0, room_width);
+y = clamp(y, 0, room_height);
+show_debug_message("scr_init is " + string(scr_init));
 script_execute(state);
 </string>
           </argument>
