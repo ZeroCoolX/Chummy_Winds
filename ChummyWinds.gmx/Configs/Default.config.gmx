@@ -634,7 +634,8 @@
     <option_xbone_title_id></option_xbone_title_id>
   </Options>
   <ConfigConstants>
-    <constants number="12">
+    <constants number="13">
+      <constant name="DASH_COST">5</constant>
       <constant name="SHAPE_TRIANGLE">2</constant>
       <constant name="SHAPE_CIRCLE">1</constant>
       <constant name="SHAPE_SQUARE">0</constant>

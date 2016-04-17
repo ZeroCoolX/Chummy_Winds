@@ -12,6 +12,8 @@
         <sprite>sprites\spr_player_down</sprite>
         <sprite>sprites\spr_player_left</sprite>
         <sprite>sprites\spr_player_right</sprite>
+        <sprite>sprites\spr_player_death</sprite>
+        <sprite>sprites\spr_player_death_trap</sprite>
       </sprites>
       <sprites name="Triangle">
         <sprite>sprites\spr_p_triangle_down</sprite>
@@ -63,6 +65,7 @@
       <script>scripts\scr_player_deflect.gml</script>
       <script>scripts\scr_player_hurt_state.gml</script>
       <script>scripts\scr_hurt_player.gml</script>
+      <script>scripts\scr_dead.gml</script>
     </scripts>
     <scripts name="Baddies">
       <script>scripts\scr_enemy_init.gml</script>
@@ -106,10 +109,15 @@
     </objects>
     <objects name="Enviroment">
       <object>objects\Wall</object>
+      <object>objects\Trap</object>
+      <object>objects\Pause_menu</object>
+      <object>objects\Start_Menu</object>
     </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_start</room>
     <room>rooms\rm_one</room>
+    <room>rooms\rm_pause</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

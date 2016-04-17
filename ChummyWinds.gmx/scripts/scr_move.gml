@@ -4,15 +4,15 @@
 friction = 0;
 image_speed = .35;
 ///shape changing
-if(shape_one){
+if(Input.shape_one){
     Player.cur_shape = SHAPE_TRIANGLE;
     scr_shape(spr_p_triangle_right, spr_p_triangle_left, spr_p_triangle_up, spr_p_triangle_down);
 }
-if(shape_two){
+if(Input.shape_two){
     Player.cur_shape = SHAPE_CIRCLE;
     scr_shape(spr_p_circle_right, spr_p_circle_left, spr_p_circle_up, spr_p_circle_down);
 }
-if(shape_three){
+if(Input.shape_three){
     Player.cur_shape = SHAPE_SQUARE;
     scr_shape(spr_p_square_right, spr_p_square_left, spr_p_square_up, spr_p_square_down);
 }
@@ -44,7 +44,7 @@ if(place_meeting(x, y+vspd, collision_object)){
 y += vspd;
 
 
-if(dash_key){
+if(Input.dash_key){
 var dir = point_direction(x, y, target.x, target.y);
       if(point_distance(x, y, target.x, target.y) < 150){
        should_dash = 1;

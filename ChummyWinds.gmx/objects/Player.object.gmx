@@ -172,14 +172,7 @@ state = scr_move;
           <argument>
             <kind>1</kind>
             <string>//Step Event
-if(instance_exists(PlayerStats)){
-   if(PlayerStats.hp &lt;= 0){
-       room_restart();
-       //instance_destroy();
-   }
-}
 depth = -y;
-scr_get_input();
 script_execute(state);
 </string>
           </argument>
@@ -214,30 +207,31 @@ Rules for collisions:
 
 
 if(state == scr_dash_state){//player is curently dashing
-   if(cur_shape == other.cur_shape){//player is the same shape as the thing its colliding with so kill the enemy
-       if(instance_exists(PlayerStats)){//add to the playerstats killcount too
-           PlayerStats.kills += 1;
-       }
-       with(other){//kill enemy player collided with
-           instance_destroy();
-       }
-  }else{//player is NOT the same shape but is dashing
-       scr_hurt_player();
-  }
+  if(cur_shape == other.cur_shape){//player is the same shape as the thing its colliding with so kill the enemy
+      if(instance_exists(PlayerStats)){//add to the playerstats killcount too
+          PlayerStats.kills += 1;
+      }
+      with(other){//kill enemy player collided with
+          instance_destroy();
+      }
+      alarm[1] = 50;
+ }else{//player is NOT the same shape but is dashing
+      scr_hurt_player();
+ }
 }else{//player is not dashing
-   if(cur_shape == other.cur_shape){//but the player is the same shape so deflect
-       //deflect and change back
-       show_debug_message("dont hurt the player but the player and collider are same shape so deflect");
-       //change colour
-       with(other){
-           image_blend = c_yellow;
-           speed = -50;
-           alarm[1] = room_speed/6;
-       }
-       scr_player_deflect();//change back
-   }else{//player is NOT the same shape and isn't dashing...so hurt them
-       scr_hurt_player();
-   }
+  if(cur_shape == other.cur_shape){//but the player is the same shape so deflect
+      //deflect and change back
+      show_debug_message("dont hurt the player but the player and collider are same shape so deflect");
+      //change colour
+      with(other){
+          image_blend = c_yellow;
+          speed = -50;
+          alarm[1] = room_speed/6;
+      }
+      scr_player_deflect();//change back
+  }else{//player is NOT the same shape and isn't dashing...so hurt them
+      scr_hurt_player();
+  }
 }
 </string>
           </argument>
@@ -261,14 +255,22 @@ if(state == scr_dash_state){//player is curently dashing
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var dir = point_direction(x, y, target.x, target.y);
-     if(point_distance(x, y, target.x, target.y) &lt; 150){
-      should_dash = 1;
-     }else{
-      should_dash = 0;
-     }
-     state = scr_dash_state;
-     alarm[0] = room_speed / 6; //frames per second - 30 for now. 8 is arbitrary
+            <string>///press event for dashing
+
+if(instance_exists(PlayerStats)){
+   if(PlayerStats.stamina &gt; DASH_COST){
+       var dir = point_direction(x, y, target.x, target.y);
+       if(point_distance(x, y, target.x, target.y) &lt; 150){
+           should_dash = 1;
+       }else{
+           should_dash = 0;
+       }
+       state = scr_dash_state;
+       alarm[0] = room_speed / 6; //frames per second - 30 for now. 8 is arbitrary
+       PlayerStats.stamina -= DASH_COST;
+       PlayerStats.alarm[0] = room_speed;
+   }
+}
 </string>
           </argument>
         </arguments>

@@ -5,4 +5,4 @@ left_image = argument[1];
 up_image = argument[2];
 down_image = argument[3];
 
-alarm[1] = 100;
+alarm[1] = 50;

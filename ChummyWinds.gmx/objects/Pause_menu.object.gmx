@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>0</depth>
-  <persistent>-1</persistent>
+  <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -25,8 +25,39 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Initialize the input object
-scr_get_input();
+            <string>/// Initialize the Menu
+title = "GAME PAUSED";
+
+option[0] = "[RETURN]";
+option[1] = "[QUIT]";
+//option[2] = "Save";
+//option[3] = "Load";
+
+//Menu Index
+menu_index = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///alarm
 </string>
           </argument>
         </arguments>
@@ -49,29 +80,56 @@ scr_get_input();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Initialize the input object
-scr_get_input();
-
-
-// Pause the Game
-if (pause_key) {
-   if (room != rm_pause) {
-       if (instance_exists(Player)) {
-           Player.persistent = false;
+            <string>/// Control The Menu
+if (alarm[0] &lt;= 0) {
+   if (Input.down_key) {
+       if (menu_index &lt; array_length_1d(option) -1) {
+           menu_index++;
+       } else {
+               menu_index = 0;
        }
-       previous_room = room;
-       room_goto(rm_pause);
-   } else {
-       room_goto(previous_room);
+       alarm[0] = room_speed/6;
+       }
    }
-   Input.pause_key = false;
-}
+   
+
+   if (Input.up_key) {
+       if (menu_index &gt; 0) {
+           menu_index--;
+       } else {
+              menu_index = array_length_1d(option) -1; {
+       }
+       alarm[0] = room_speed/6;
+       }
+   }
+   
+   
+   if (Input.enter_key) {
+       show_debug_message("enter to key")
+        switch (menu_index) {
+           case 0:
+               room_goto(Input.previous_room);
+               break;
+               
+           case 1:
+           if (show_question("ARE YOU SURE?")) {
+           game_end();
+         } else {
+           }
+           break;
+           
+           default:
+               break;
+           }
+           Input.enter_key = false;
+          
+       }
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="7" enumb="4">
+    <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -88,10 +146,21 @@ if (pause_key) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Set the player's persistence
-if (instance_exists(Player)) {
-   Player.persistent = true;
+            <string>/// Draw The Menu
+var xx = display_get_gui_width()/2;
+var yy = display_get_gui_height()/2;
+draw_set_halign(fa_center);
+draw_text(xx, yy-64, title);
+
+for (var i=0; i&lt;=array_length_1d(option) -1; i++) {
+   draw_set_color(c_gray);
+   if (i == menu_index) {
+       draw_set_colour(c_white);
+   }
+   draw_text(xx, yy+(i*32), option[i]);
 }
+draw_set_colour(c_white);
+draw_set_colour(fa_left);
 </string>
           </argument>
         </arguments>

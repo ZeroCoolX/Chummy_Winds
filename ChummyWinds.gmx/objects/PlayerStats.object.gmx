@@ -25,12 +25,43 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Initialize the player's stats
+            <string>// Initialize the player's stats
 
+//health
 hp = 10;
 maxhp = 10;
+//stamina
+stamina = 20;
+maxstamina = stamina;
+//kills
 kills = 0;
 
+//for pause
+draw_set_colour(c_white)
+previous_room = room
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Stamina regen
 </string>
           </argument>
         </arguments>
@@ -54,9 +85,13 @@ kills = 0;
           <argument>
             <kind>1</kind>
             <string>/// Control the stats
-if(hp &lt; 0 ){
-  hp = 0;
-  //should kill player
+if(hp &lt; 0 ){//don't let helath go below 0
+ hp = 0;
+}
+
+//Stamina regen
+if(stamina &lt; maxstamina &amp;&amp; alarm[0] == -1){
+   ++stamina;
 }
 </string>
           </argument>
@@ -102,6 +137,9 @@ for(var i = 1; i &lt;= kills; ++i){
       draw_sprite_ext(spr_tally_right, 0, (960+i*-8), 32, 1, 1, 0, c_white, 1);
   }
 }  
+
+draw_text(490, 532, "STAMINA: " + string(stamina) + "/" + string(maxstamina));
+draw_text(300,532,"Shape time left: " + string(Player.alarm[1]));
 </string>
           </argument>
         </arguments>
