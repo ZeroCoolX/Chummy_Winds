@@ -27,9 +27,9 @@
             <kind>1</kind>
             <string>/// Initialize the player's stats
 
-hp = 1;
-maxhp = 3;
-kills = 10;
+hp = 10;
+maxhp = 10;
+kills = 0;
 
 </string>
           </argument>

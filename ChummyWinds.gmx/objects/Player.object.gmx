@@ -32,6 +32,7 @@ vspd = 0;
 state = 0;
 image_blend = make_colour_rgb(220, 150,150);
 target = Mouse;
+cur_shape = SHAPE_NONE;
 scr_get_input();
 state = scr_init(Wall);
 up_image = spr_player_up;
@@ -40,6 +41,59 @@ left_image = spr_player_left;
 right_image = spr_player_right;
 should_dash = -1;
 dash_dir = 0;
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//Returning from the hurt_state reset speed back to 0 change colour back and move again
+speed += 50;
+image_blend = c_white;
+state = scr_move;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//Returning from the hurt_state reset speed back to 0 change colour back and move again
+speed += 60;
+image_blend = c_white;
+state = scr_move;
 </string>
           </argument>
         </arguments>
@@ -67,6 +121,7 @@ up_image = spr_player_up;
 down_image = spr_player_down;
 left_image = spr_player_left;
 right_image = spr_player_right;
+cur_shape = SHAPE_NONE;
 scr_player_face();
 </string>
           </argument>
@@ -117,6 +172,12 @@ state = scr_move;
           <argument>
             <kind>1</kind>
             <string>//Step Event
+if(instance_exists(PlayerStats)){
+   if(PlayerStats.hp &lt;= 0){
+       room_restart();
+       //instance_destroy();
+   }
+}
 depth = -y;
 scr_get_input();
 script_execute(state);
@@ -143,14 +204,71 @@ script_execute(state);
           <argument>
             <kind>1</kind>
             <string>///Collision code
-if(state == scr_dash_state){
-   //kill the enemy if dashing
-   with(other){
-       instance_destroy();
+/*
+Rules for collisions:
+1) If the player is in his normal state as a human (either idle, moving, or dashing) and touched at all by any enemy he takes damage
+2) If the player is in a shape and touches (either idle, moving, dashing) an enemy who is NOT in the same shape, the player gets hurt
+3) If the player is in a shape and touches an enemy who IS the same shape, the player and the enemy get deflected apart and no one takes damage
+4) If the player in in a shape and DASHES into an enemy who is in the same shape the player will KILL that enemy and gain a kill
+*/
+
+
+if(state == scr_dash_state){//player is curently dashing
+   if(cur_shape == other.cur_shape){//player is the same shape as the thing its colliding with so kill the enemy
+       if(instance_exists(PlayerStats)){//add to the playerstats killcount too
+           PlayerStats.kills += 1;
+       }
+       with(other){//kill enemy player collided with
+           instance_destroy();
+       }
+  }else{//player is NOT the same shape but is dashing
+       scr_hurt_player();
+  }
+}else{//player is not dashing
+   if(cur_shape == other.cur_shape){//but the player is the same shape so deflect
+       //deflect and change back
+       show_debug_message("dont hurt the player but the player and collider are same shape so deflect");
+       //change colour
+       with(other){
+           image_blend = c_yellow;
+           speed = -50;
+           alarm[1] = room_speed/6;
+       }
+       scr_player_deflect();//change back
+   }else{//player is NOT the same shape and isn't dashing...so hurt them
+       scr_hurt_player();
    }
-}else{
-   scr_player_face();
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="53">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>var dir = point_direction(x, y, target.x, target.y);
+     if(point_distance(x, y, target.x, target.y) &lt; 150){
+      should_dash = 1;
+     }else{
+      should_dash = 0;
+     }
+     state = scr_dash_state;
+     alarm[0] = room_speed / 6; //frames per second - 30 for now. 8 is arbitrary
 </string>
           </argument>
         </arguments>

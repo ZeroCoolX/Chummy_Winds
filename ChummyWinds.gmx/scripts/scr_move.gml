@@ -1,4 +1,3 @@
-
 ///scr_move(m_speed, fric)
 
 //set the friction to 0
@@ -6,13 +5,16 @@ friction = 0;
 image_speed = .35;
 ///shape changing
 if(shape_one){
-   scr_shape(spr_p_triangle_right, spr_p_triangle_left, spr_p_triangle_up, spr_p_triangle_down);
+    Player.cur_shape = SHAPE_TRIANGLE;
+    scr_shape(spr_p_triangle_right, spr_p_triangle_left, spr_p_triangle_up, spr_p_triangle_down);
 }
 if(shape_two){
-   scr_shape(spr_circle, spr_circle, spr_circle, spr_circle);
+    Player.cur_shape = SHAPE_CIRCLE;
+    scr_shape(spr_p_circle_right, spr_p_circle_left, spr_p_circle_up, spr_p_circle_down);
 }
 if(shape_three){
-   scr_shape(spr_square, spr_square, spr_square, spr_square);
+    Player.cur_shape = SHAPE_SQUARE;
+    scr_shape(spr_p_square_right, spr_p_square_left, spr_p_square_up, spr_p_square_down);
 }
 
 var collision_object = Wall;
