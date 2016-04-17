@@ -2,24 +2,24 @@
 <sprite>
   <type>0</type>
   <xorig>16</xorig>
-  <yorigin>0</yorigin>
+  <yorigin>47</yorigin>
   <colkind>1</colkind>
   <coltolerance>0</coltolerance>
   <sepmasks>0</sepmasks>
   <bboxmode>0</bboxmode>
-  <bbox_left>1</bbox_left>
-  <bbox_right>27</bbox_right>
-  <bbox_top>1</bbox_top>
-  <bbox_bottom>14</bbox_bottom>
+  <bbox_left>5</bbox_left>
+  <bbox_right>63</bbox_right>
+  <bbox_top>0</bbox_top>
+  <bbox_bottom>204</bbox_bottom>
   <HTile>0</HTile>
   <VTile>0</VTile>
   <TextureGroups>
     <TextureGroup0>0</TextureGroup0>
   </TextureGroups>
   <For3D>0</For3D>
-  <width>28</width>
-  <height>15</height>
+  <width>70</width>
+  <height>205</height>
   <frames>
-    <frame index="0">images\spr_deplete_0.png</frame>
+    <frame index="0">images\spr_clip_0.png</frame>
   </frames>
 </sprite>

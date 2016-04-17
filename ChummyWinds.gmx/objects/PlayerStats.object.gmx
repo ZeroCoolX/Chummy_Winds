@@ -117,25 +117,26 @@ if(stamina &lt; maxstamina &amp;&amp; alarm[0] == -1){
             <kind>1</kind>
             <string>//Draw the health deplete
 for(var i = 1; i &lt;= maxhp; ++i){
-  draw_sprite_ext(spr_deplete, 0, (24+i*32), 32, 1, 1, 0, c_white, 0.5);
+  draw_sprite(spr_deplete, 0, (27+i*32), 48);
 }
 //Draw the health 
 for(var i = 1; i &lt;= hp; ++i){
-  draw_sprite_ext(spr_health, 0, (24+i*32), 32, 1, 1, 0, c_white, 1);
+  draw_sprite(spr_health, 0, (24+i*32), 32);
 }
+
 
 var first = true;
 //Draw the kills
 for(var i = 1; i &lt;= kills; ++i){
-  if (first){
-      first = false
-  }
-  if (!first &amp;&amp; i%5 == 0){
-      draw_sprite_ext(spr_tally_left, 0, (960+i*-6), 32, 1, 1, 0, c_white, 1);
-  }
-  else{
-      draw_sprite_ext(spr_tally_right, 0, (960+i*-8), 32, 1, 1, 0, c_white, 1);
-  }
+ if (first){
+     first = false
+ }
+ if (!first &amp;&amp; i%5 == 0){
+     draw_sprite_ext(spr_tally_left, 0, (960+(i-2)*-8), 32, 1, 1, 0, c_white, 1);
+ }
+ else{
+     draw_sprite_ext(spr_tally_right, 0, (960+i*-8), 32, 1, 1, 0, c_white, 1);
+ }
 }  
 
 draw_text(490, 532, "STAMINA: " + string(stamina) + "/" + string(maxstamina));

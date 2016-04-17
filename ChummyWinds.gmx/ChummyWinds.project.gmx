@@ -40,7 +40,9 @@
       <sprite>sprites\spr_triangle</sprite>
     </sprites>
     <sprites name="Enviroment">
-      <sprite>sprites\spr_wall</sprite>
+      <sprite>sprites\spr_pencil</sprite>
+      <sprite>sprites\spr_clip</sprite>
+      <sprite>sprites\spr_mouse</sprite>
     </sprites>
     <sprites name="Stats">
       <sprite>sprites\spr_deplete</sprite>
@@ -66,11 +68,14 @@
       <script>scripts\scr_player_hurt_state.gml</script>
       <script>scripts\scr_hurt_player.gml</script>
       <script>scripts\scr_dead.gml</script>
+      <script>scripts\scr_player_leave_2d.gml</script>
+      <script>scripts\scr_player_leave_2d_state.gml</script>
     </scripts>
     <scripts name="Baddies">
       <script>scripts\scr_enemy_init.gml</script>
       <script>scripts\scr_enemy_move.gml</script>
       <script>scripts\scr_enemy_idle.gml</script>
+      <script>scripts\scr_enemy_attack_dash.gml</script>
     </scripts>
     <scripts name="Helpers">
       <script>scripts\scr_get_input.gml</script>
@@ -112,6 +117,8 @@
       <object>objects\Trap</object>
       <object>objects\Pause_menu</object>
       <object>objects\Start_Menu</object>
+      <object>objects\Pencil</object>
+      <object>objects\PaperClip</object>
     </objects>
   </objects>
   <rooms name="rooms">

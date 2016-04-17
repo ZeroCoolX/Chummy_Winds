@@ -7,4 +7,4 @@ acc = 0.5;
 hspd = 0;
 vspd = 0;
 
-state = scr_enemy_move;
+state = scr_enemy_idle;

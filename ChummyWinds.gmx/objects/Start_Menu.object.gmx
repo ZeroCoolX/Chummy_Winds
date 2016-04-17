@@ -109,7 +109,6 @@ if (alarm[0] &lt;= 0) {
        switch (menu_index) {
                
            case 0:
-           show_message("ENTER CHUMMY WINDS AT YOUR PERIL!"); 
            room_goto(rm_one);
 
            break;

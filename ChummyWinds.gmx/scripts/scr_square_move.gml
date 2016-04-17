@@ -1,6 +1,6 @@
 
 ///scr_square_move()
-wait = irandom_range(20,50);
+wait = irandom_range(0,20);
 
 switch(face) {
   case SQUARE_LEFT: 
