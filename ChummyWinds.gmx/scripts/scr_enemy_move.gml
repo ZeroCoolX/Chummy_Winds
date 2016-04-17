@@ -10,8 +10,8 @@ direction = point_direction(x, y, target.x, target.y);
 var hspd =  lengthdir_x(2,direction);
 var vspd = lengthdir_y(2,direction);
 
-if(place_meeting(x+hspd, y, Enemy)){
-    collision_object = Enemy;
+if(place_meeting(x+hspd, y, Circle)){
+    collision_object = Circle;
 }else{
     collision_object = Wall;
 }
@@ -25,8 +25,8 @@ if(place_meeting(x+hspd, y, collision_object)){
 }
 x += hspd;
 
-if(place_meeting(x, y+vspd, Enemy)){
-    collision_object = Enemy;
+if(place_meeting(x, y+vspd, Circle)){
+    collision_object = Circle;
 }else{
     collision_object = Wall;
 }

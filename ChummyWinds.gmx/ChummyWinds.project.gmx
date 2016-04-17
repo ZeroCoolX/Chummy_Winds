@@ -7,7 +7,14 @@
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprites name="Player">
-      <sprite>sprites\spr_player</sprite>
+      <sprite>sprites\spr_player_right</sprite>
+      <sprite>sprites\spr_player_left</sprite>
+      <sprite>sprites\spr_player_down</sprite>
+      <sprite>sprites\spr_player_up</sprite>
+      <sprite>sprites\spr_p_triangle_right</sprite>
+      <sprite>sprites\spr_p_triangle_left</sprite>
+      <sprite>sprites\spr_p_triangle_down</sprite>
+      <sprite>sprites\spr_p_triangle_up</sprite>
     </sprites>
     <sprites name="Baddies">
       <sprite>sprites\spr_circle</sprite>
@@ -16,6 +23,12 @@
     </sprites>
     <sprites name="Enviroment">
       <sprite>sprites\spr_wall</sprite>
+    </sprites>
+    <sprites name="Stats">
+      <sprite>sprites\spr_deplete</sprite>
+      <sprite>sprites\spr_health</sprite>
+      <sprite>sprites\spr_tally_right</sprite>
+      <sprite>sprites\spr_tally_left</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -29,6 +42,7 @@
       <script>scripts\scr_idle.gml</script>
       <script>scripts\scr_dash_state.gml</script>
       <script>scripts\scr_shape.gml</script>
+      <script>scripts\scr_player_face.gml</script>
     </scripts>
     <scripts name="Baddies">
       <script>scripts\scr_enemy_init.gml</script>
@@ -57,11 +71,13 @@
     <object>objects\LifeformParent</object>
     <objects name="Player">
       <object>objects\Player</object>
+      <object>objects\PlayerStats</object>
     </objects>
     <objects name="Baddies">
-      <object>objects\Enemy</object>
+      <object>objects\Circle</object>
       <object>objects\Square</object>
       <object>objects\Triangle</object>
+      <object>objects\BaddieParent</object>
     </objects>
     <objects name="Control">
       <object>objects\Input</object>

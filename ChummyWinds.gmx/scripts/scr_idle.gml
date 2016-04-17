@@ -6,13 +6,13 @@ image_index = 0;
 
 ///shape changing
 if(shape_one){
-   scr_shape(spr_ptriangle);
+   scr_shape(spr_p_triangle_right, spr_p_triangle_left, spr_p_triangle_up, spr_p_triangle_down);
 }
 if(shape_two){
-   scr_shape(spr_pcircle);
+   scr_shape(spr_circle, spr_circle, spr_circle, spr_circle);
 }
 if(shape_three){
-   scr_shape(spr_psquare);
+   scr_shape(spr_square, spr_square, spr_square, spr_square);
 }
 
 if(point_distance(x, y,  target.x, target.y) > 32){
