@@ -358,7 +358,7 @@ if(instance_exists(PlayerStats) &amp;&amp; !dead){
         </arguments>
       </action>
     </event>
-    <event eventtype="7" enumb="4">
+    <event eventtype="7" enumb="5">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -375,19 +375,9 @@ if(instance_exists(PlayerStats) &amp;&amp; !dead){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>with(BaddieParent){
-    instance_destroy();
-}
-with(Circle){
-    instance_destroy();
-}
-with(Square){
-    instance_destroy();
-}
-with(Triangle){
-    instance_destroy();
-}
+            <string>///kill myself
 
+instance_destroy();
 </string>
           </argument>
         </arguments>
