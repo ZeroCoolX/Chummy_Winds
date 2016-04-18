@@ -4,7 +4,25 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\snd_page_move_in</sound>
+    <sound>sound\snd_kill_enemy</sound>
+    <sound>sound\snd_death_lose</sound>
+    <sound>sound\snd_damaged_1</sound>
+    <sound>sound\snd_damaged_3</sound>
+    <sound>sound\snd_damaged_2</sound>
+    <sound>sound\snd_damaged_4</sound>
+    <sound>sound\snd_dash</sound>
+    <sound>sound\snd_page_move_out</sound>
+    <sound>sound\snd_stage_clear</sound>
+    <sounds name="Music">
+      <sound>sound\snd_music_lvl_2</sound>
+      <sound>sound\snd_music_lvl_3</sound>
+      <sound>sound\snd_music_lvl_1</sound>
+      <sound>sound\snd_music_ending</sound>
+      <sound>sound\snd_music_menu</sound>
+    </sounds>
+  </sounds>
   <sprites name="sprites">
     <sprites name="Player">
       <sprites name="Dude">
@@ -190,10 +208,10 @@
     </objects>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_three</room>
     <room>rooms\rm_start</room>
     <room>rooms\rm_one</room>
     <room>rooms\rm_two</room>
+    <room>rooms\rm_three</room>
     <room>rooms\rm_pause</room>
     <room>rooms\rm_control</room>
     <room>rooms\rm_thanks</room>

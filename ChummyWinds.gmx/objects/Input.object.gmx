@@ -59,9 +59,11 @@ if (pause_key) {
        if (instance_exists(Player)) {
            Player.persistent = false;
        }
+       //audio_play_sound(snd_page_move_in, 92, false);
        previous_room = room;
        room_goto(rm_pause);
    } else {
+       //audio_play_sound(snd_page_move_out, 91, false);
        room_goto(previous_room);
    }
    Input.pause_key = false;

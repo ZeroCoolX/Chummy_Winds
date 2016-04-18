@@ -85,6 +85,10 @@ alarm[0] = 150
             <string>///Control the credits to go back to the start
 ///Control the menu 
 if(keyboard_check(vk_anykey)){
+        if(audio_is_playing(snd_music_ending)){
+        audio_stop_sound(snd_music_ending);
+        audio_play_sound(snd_music_menu, 105, true);
+    }
     room_goto(rm_start);
 }
 </string>

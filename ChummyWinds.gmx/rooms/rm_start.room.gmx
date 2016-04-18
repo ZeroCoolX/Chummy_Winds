@@ -7,10 +7,10 @@
   <hsnap>1</hsnap>
   <isometric>0</isometric>
   <speed>30</speed>
-  <persistent>0</persistent>
+  <persistent>-1</persistent>
   <colour>7405568</colour>
   <showcolour>0</showcolour>
-  <code></code>
+  <code>audio_play_sound(snd_music_menu, 101, true);</code>
   <enableViews>-1</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>

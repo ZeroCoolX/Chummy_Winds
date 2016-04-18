@@ -47,6 +47,7 @@ y += vspd;
 if(Input.dash_key){
 if(instance_exists(PlayerStats)){
    if(PlayerStats.stamina >= DASH_COST){
+       audio_play_sound(snd_dash,95, false);
        var dir = point_direction(x, y, target.x, target.y);
              if(point_distance(x, y, target.x, target.y) < 200){
               should_dash = 1;

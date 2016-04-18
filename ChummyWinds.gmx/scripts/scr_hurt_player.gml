@@ -8,6 +8,7 @@ if(state != scr_player_hurt_state){
        state = scr_player_hurt_state;
        scr_player_face();//change them back
    } else {
+        audio_play_sound(snd_death_lose,92, false);
         dead = true;
         sprite_index = spr_player_death;
         image_index = 0;

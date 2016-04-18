@@ -1,6 +1,10 @@
 ///scr_force_reset_room()
 if(room_exists(rm_one) && room == rm_one){
 show_debug_message("resetting 1");
+    if(audio_is_playing(snd_music_menu)){
+        audio_stop_sound(snd_music_menu);
+        audio_play_sound(snd_music_lvl_1, 102, true);
+    }
         //manually run rm_one's create code to "reset" the presistent room
         //this determines how many baddies can be in the room at one point
         PlayerStats.allowed_baddies = 5;
@@ -21,6 +25,10 @@ show_debug_message("resetting 1");
         }
 }else if(room_exists(rm_two) && room == rm_two){
     show_debug_message("resetting 2");
+        if(audio_is_playing(snd_music_lvl_1)){
+        audio_stop_sound(snd_music_lvl_1);
+        audio_play_sound(snd_music_lvl_2, 103, true);
+    }
         //manually run rm_one's create code to "reset" the presistent room
         //this determines how many baddies can be in the room at one point
         PlayerStats.allowed_baddies = 8;
@@ -41,6 +49,10 @@ show_debug_message("resetting 1");
         }
 }else if(room_exists(rm_three) && room == rm_three){
     show_debug_message("resetting 3");
+            if(audio_is_playing(snd_music_lvl_2)){
+        audio_stop_sound(snd_music_lvl_2);
+        audio_play_sound(snd_music_lvl_3, 103, true);
+    }
         //manually run rm_one's create code to "reset" the presistent room
         //this determines how many baddies can be in the room at one point
         PlayerStats.allowed_baddies = 10;

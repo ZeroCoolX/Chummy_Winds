@@ -241,6 +241,22 @@ Rules for collisions:
 */
 if(!dead) {
     if(cur_shape == SHAPE_NONE){
+        randomize();
+        var rand_hit_snd = irandom_range(1,4);
+        switch(rand_hit_snd){
+            case 1:
+                audio_play_sound(snd_damaged_1,100, false);
+                break;
+            case 2:
+                audio_play_sound(snd_damaged_2,99, false);
+            break;
+            case 3:
+                audio_play_sound(snd_damaged_3,98, false);
+            break;
+            case 4:
+                audio_play_sound(snd_damaged_4,97, false);
+            break;
+        }
        scr_hurt_player();
     }else{
        if(state == scr_dash_state){//player is curently dashing
@@ -248,6 +264,7 @@ if(!dead) {
              if(instance_exists(PlayerStats)){//add to the playerstats killcount too
                  PlayerStats.kills -= 1;
              }
+             audio_play_sound(snd_kill_enemy,94, false);
              with(other){//kill enemy player collided with
                  instance_destroy();
              }
@@ -298,6 +315,7 @@ if(!dead) {
 
 if(instance_exists(PlayerStats) &amp;&amp; !dead){
    if(PlayerStats.stamina &gt; DASH_COST){
+       audio_play_sound(snd_dash,96, false);
        var dir = point_direction(x, y, target.x, target.y);
        if(point_distance(x, y, target.x, target.y) &lt; 150){
            should_dash = 1;
