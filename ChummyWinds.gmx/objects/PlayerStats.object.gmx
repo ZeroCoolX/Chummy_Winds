@@ -106,8 +106,41 @@ if(kills == 0){
           Player.persistent = false;
       }
    var clear = instance_create(view_xview[0]/2, view_yview[0]/2, StageClear);
-   clear.alarm[0] = 200;
+   clear.alarm[0] = 100;
    kills = -1;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///create player
+if(!instance_exists(Player)){
+show_debug_message("player instance didnt exist");
+    instance_create(640, 256, Player);
+}else if(instance_exists(Player) &amp;&amp; Player.dead){
+show_debug_message("destroying player then creating");
+     with(Player){
+        instance_destroy();
+    }
+    instance_create(640, 256, Player);
 }
 </string>
           </argument>

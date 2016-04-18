@@ -26,6 +26,13 @@
           <argument>
             <kind>1</kind>
             <string>///Create the stage clear alarm to last for 10 seconds
+    if(audio_is_playing(snd_music_lvl_1)){
+        audio_stop_sound(snd_music_lvl_1);
+    }else if(audio_is_playing(snd_music_lvl_2)){
+        audio_stop_sound(snd_music_lvl_2);
+    } if(audio_is_playing(snd_music_lvl_3)){
+        audio_stop_sound(snd_music_lvl_3);
+    }
 audio_play_sound(snd_stage_clear, 93, false);
 depth = Player.depth - 50;
 previous_room = room;
@@ -59,7 +66,8 @@ if(room == rm_one){
 } else {
     if(audio_is_playing(snd_music_lvl_3)){
         audio_stop_sound(snd_music_lvl_3);
-        audio_play_sound(snd_music_ending, 104, true);
+        audio_emitter_gain(audio_em, 0.3);
+        audio_play_sound_on(audio_em, snd_music_ending, true, 104);
     }
     room_goto(rm_thanks);
 }

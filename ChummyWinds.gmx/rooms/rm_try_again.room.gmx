@@ -3,16 +3,14 @@
   <caption></caption>
   <width>2048</width>
   <height>2048</height>
-  <vsnap>10</vsnap>
-  <hsnap>10</hsnap>
+  <vsnap>1</vsnap>
+  <hsnap>1</hsnap>
   <isometric>0</isometric>
   <speed>30</speed>
-  <persistent>-1</persistent>
-  <colour>12632256</colour>
-  <showcolour>0</showcolour>
-  <code>//this determines how many baddies can be in the room at one point
-//PlayerStats.allowed_baddies = 8
-//scr_spawn_baddies(8);</code>
+  <persistent>0</persistent>
+  <colour>0</colour>
+  <showcolour>-1</showcolour>
+  <code></code>
   <enableViews>-1</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
@@ -33,7 +31,7 @@
     <yoffset>0</yoffset>
   </makerSettings>
   <backgrounds>
-    <background visible="-1" foreground="0" name="chalkboard" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
+    <background visible="-1" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
@@ -43,7 +41,7 @@
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
   </backgrounds>
   <views>
-    <view visible="-1" objName="Player" xview="0" yview="0" wview="1600" hview="900" xport="0" yport="0" wport="1024" hport="576" hborder="800" vborder="450" hspeed="-1" vspeed="-1"/>
+    <view visible="-1" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1600" hview="900" xport="0" yport="0" wport="1024" hport="576" hborder="800" vborder="450" hspeed="-1" vspeed="-1"/>
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
@@ -53,18 +51,8 @@
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
-    <instance objName="ViewController" x="160" y="288" name="inst_507F3F37" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="BaddieParent" x="448" y="480" name="inst_396E9B0E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="PlayerStats" x="256" y="128" name="inst_C82DCE64" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Mouse" x="480" y="352" name="inst_02FBA31E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Wall" x="608" y="64" name="inst_7A974577" locked="0" code="" scaleX="1" scaleY="-0.699999988079071" colour="4294967295" rotation="0"/>
-    <instance objName="ChalkWhite" x="110" y="1250" name="inst_C398B11F" locked="0" code="" scaleX="1.02083337306976" scaleY="1.69777774810791" colour="4294967295" rotation="0"/>
-    <instance objName="ChalkBlue" x="1080" y="1790" name="inst_E0924C8A" locked="0" code="" scaleX="1.22916662693024" scaleY="2.42000007629395" colour="4294967295" rotation="300"/>
-    <instance objName="ChalkYellow" x="1250" y="1020" name="inst_18462E14" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="ChalkPink" x="1020" y="800" name="inst_4CECCF18" locked="0" code="" scaleX="0.810000002384186" scaleY="1.5326087474823" colour="4294967295" rotation="93"/>
-    <instance objName="PenObs" x="430" y="190" name="inst_5E22627B" locked="0" code="" scaleX="0.8299999833107" scaleY="0.61904764175415" colour="4294967295" rotation="355"/>
-    <instance objName="Input" x="260" y="380" name="inst_BA07D52A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Apple" x="1770" y="630" name="inst_C0328487" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="StageLose" x="852" y="476" name="inst_87DFCBDC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="try_again" x="229" y="86" name="inst_71197504" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

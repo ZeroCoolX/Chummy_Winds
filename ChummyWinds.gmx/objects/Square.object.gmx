@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>event_inherited();
+should_respawn = 1;
 cur_shape = SHAPE_SQUARE;
 face = 0;
 xaxis = true;
@@ -54,16 +55,18 @@ state = scr_square_get_face;
           <argument>
             <kind>1</kind>
             <string>///Destroy Event
-while(true){
-       xr = irandom_range(10, room_width);
-       yr = irandom_range(10, room_height);
-       if(!place_meeting(xr, yr, Wall) &amp;&amp; !place_meeting(xr, yr, Player)){
-           break;
-       }
-}
-
-if(PlayerStats.kills &gt;= PlayerStats.kills &gt; PlayerStats.allowed_baddies - PlayerStats.kills){
-   instance_create(xr, yr, Square);
+if(should_respawn &gt; 0){
+    while(true){
+           xr = irandom_range(10, room_width);
+           yr = irandom_range(10, room_height);
+           if(!place_meeting(xr, yr, Wall) &amp;&amp; !place_meeting(xr, yr, Player)){
+               break;
+           }
+    }
+    
+    if(PlayerStats.kills &gt;= PlayerStats.kills &gt; PlayerStats.allowed_baddies - PlayerStats.kills){
+       instance_create(xr, yr, Square);
+    }
 }
 </string>
           </argument>
@@ -137,6 +140,30 @@ speed += 50;
             <string>///execute state
 event_inherited();
 script_execute(state);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>should_respawn = 0;
+instance_destroy();
 </string>
           </argument>
         </arguments>

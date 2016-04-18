@@ -205,6 +205,8 @@
       <object>objects\StageClear</object>
       <object>objects\CreditsMenu</object>
       <object>objects\Recognitionizer</object>
+      <object>objects\try_again</object>
+      <object>objects\StageLose</object>
     </objects>
   </objects>
   <rooms name="rooms">
@@ -213,6 +215,7 @@
     <room>rooms\rm_two</room>
     <room>rooms\rm_three</room>
     <room>rooms\rm_pause</room>
+    <room>rooms\rm_try_again</room>
     <room>rooms\rm_control</room>
     <room>rooms\rm_thanks</room>
     <room>rooms\rm_credits</room>
