@@ -51,13 +51,12 @@ previous_room = room;
           <argument>
             <kind>1</kind>
             <string>///Load next room
-
 if(room == rm_one){
     room_goto(rm_two);
 } else if(room == rm_two) {
     room_goto(rm_three);
 } else {
-    room_goto(rm_start);
+    room_goto(rm_thanks);
 }
 
 </string>

@@ -134,6 +134,7 @@
     <scripts name="Control">
       <script>scripts\scr_view_zoom.gml</script>
       <script>scripts\scr_move_view.gml</script>
+      <script>scripts\scr_force_reset_rooms.gml</script>
     </scripts>
     <scripts name="TriangleBaddie">
       <script>scripts\scr_triangle_idle.gml</script>
@@ -184,15 +185,19 @@
       <object>objects\PaintPink</object>
       <object>objects\PaintOrange</object>
       <object>objects\StageClear</object>
+      <object>objects\CreditsMenu</object>
+      <object>objects\Recognitionizer</object>
     </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_three</room>
     <room>rooms\rm_start</room>
     <room>rooms\rm_one</room>
     <room>rooms\rm_two</room>
-    <room>rooms\rm_three</room>
     <room>rooms\rm_pause</room>
     <room>rooms\rm_control</room>
+    <room>rooms\rm_thanks</room>
+    <room>rooms\rm_credits</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

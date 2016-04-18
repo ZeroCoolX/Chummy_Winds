@@ -2,7 +2,7 @@
 ///scr_spawn_baddies(baddie_count)
 var baddie_count = argument[0];
 //Create Enemies
-for(var i = 0; i <=baddie_count; i++){
+for(var i = 0; i < baddie_count; i++){
   var type = irandom_range(1, 3);
   while(true){
        xr = irandom_range(10, room_width);

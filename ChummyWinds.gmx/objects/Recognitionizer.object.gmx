@@ -25,26 +25,18 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Initialize the player's stats
+            <string>///Let everyone recognize he who put in literally days of effort ;)
+/// Initialize the Menu
+title1 = "Wave at your screen to";
+title2 = "return to the start menu"
+option[0] =  "Just kidding."
+option[1] = "Wouldn't that be awesome though?";
+option[2] = "press any button...";
+//Menu Index
+menu_index = 0;
 
-//health
-hp = 10;
-maxhp = 10;
-//stamina
-stamina = 20;
-maxstamina = stamina;
-//kills
-if(room == rm_one){
-   kills = 10;
-}else if (room == rm_two){
-   kills = 15;
-}else if(room == rm_three){
-   kills = 20;
-}
-allowed_baddies = 0;
-//for pause
-draw_set_colour(c_white)
-previous_room = room
+alarm[0] = 150
+
 </string>
           </argument>
         </arguments>
@@ -67,7 +59,7 @@ previous_room = room
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Stamina regen
+            <string>///show text
 </string>
           </argument>
         </arguments>
@@ -90,24 +82,10 @@ previous_room = room
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Control the stats
-if(hp &lt; 0 ){//don't let helath go below 0
- hp = 0;
-}
-
-//Stamina regen
-if(stamina &lt; maxstamina &amp;&amp; alarm[0] == -1){
-   ++stamina;
-}
-
-if(kills == 0){
-//go to the 
-      if (instance_exists(Player)) {
-          Player.persistent = false;
-      }
-   var clear = instance_create(view_xview[0]/2, view_yview[0]/2, StageClear);
-   clear.alarm[0] = 200;
-   kills = -1;
+            <string>///Control the credits to go back to the start
+///Control the menu 
+if(keyboard_check(vk_anykey)){
+    room_goto(rm_start);
 }
 </string>
           </argument>
@@ -131,38 +109,28 @@ if(kills == 0){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Draw the health deplete
-for(var i = 1; i &lt;= maxhp; ++i){
-  draw_sprite(spr_deplete, 0, (27+i*32), 48);
-}
-//Draw the health 
-for(var i = 1; i &lt;= hp; ++i){
-  draw_sprite(spr_health, 0, (24+i*32), 32);
+            <string>///Draw the menu
+var xx = display_get_gui_width()/6;
+var yy = display_get_gui_height()/3;
+
+draw_set_halign(fa_center);
+draw_text(xx, yy-64, title1);
+draw_text(xx, yy-32, title2);
+
+//xx = display_get_gui_width();
+
+for(var i = 0; i &lt;= array_length_1d(option)-1; i++){
+    draw_set_colour(c_black);
+    if(i == menu_index){
+        draw_set_colour(c_black);
+    }
+    if(alarm[0] &lt;= 0){
+        draw_text(xx, yy+(i*32), option[i]);
+    }
 }
 
-
-var first = true;
-//Draw the kills
-for(var i = 1; i &lt;= kills; ++i){
- if (first){
-     first = false
- }
- if (!first &amp;&amp; i%5 == 0){
-     draw_sprite_ext(spr_tally_left, 0, (960+(i-2)*-8), 32, 1, 1, 0, c_white, 1);
- }
- else{
-     draw_sprite_ext(spr_tally_right, 0, (960+i*-8), 32, 1, 1, 0, c_white, 1);
- }
-}  
-
-
-draw_sprite_ext(pen, 0, 1000, 390, 1, 1, 0, c_white, 1);
-for(var i = 0; i &lt; PlayerStats.stamina; ++i){
-   draw_sprite_ext(blue_meter, 0, 1006, (535 + (i * -10)), 1, 1, 0, c_white, 1);//right
-}
-for(var i = 0; i &lt; Player.alarm[1]; ++i){
-   draw_sprite_ext(red_meter, 0, 994, (535+ (i * -4)), 1, 1, 0, c_white, 1);//left    
-}
+draw_set_colour(c_black);
+draw_set_halign(fa_left);
 </string>
           </argument>
         </arguments>
