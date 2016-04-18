@@ -34,8 +34,14 @@ maxhp = 10;
 stamina = 20;
 maxstamina = stamina;
 //kills
-kills = 2;
-
+if(room == rm_one){
+   kills = 5;
+}else if (room == rm_two){
+   kills = 8;
+}else if(room == rm_three){
+   kills = 10;
+}
+allowed_baddies = 0;
 //for pause
 draw_set_colour(c_white)
 previous_room = room

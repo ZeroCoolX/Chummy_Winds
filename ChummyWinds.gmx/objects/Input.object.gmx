@@ -50,9 +50,7 @@ scr_get_input();
           <argument>
             <kind>1</kind>
             <string>/// Initialize the input object
-if(!Player.dead) { 
-    scr_get_input();
-}
+scr_get_input();
 
 
 // Pause the Game

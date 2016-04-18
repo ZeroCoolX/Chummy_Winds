@@ -53,6 +53,8 @@ if(instance_exists(PlayerStats)){
              }else{
               should_dash = 0;
              }
+             scr_player_face();
+             sprite_index = dash_image;
              state = scr_dash_state;
              alarm[0] = room_speed / 6; //frames per second - 30 for now. 8 is arbitrary
              PlayerStats.stamina -= DASH_COST;

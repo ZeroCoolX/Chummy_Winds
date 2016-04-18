@@ -60,7 +60,8 @@ while(true){
            break;
        }
 }
-if(PlayerStats.kills &lt; 50){
+
+if(PlayerStats.kills &gt;= PlayerStats.kills &gt; PlayerStats.allowed_baddies - PlayerStats.kills){
    instance_create(xr, yr, Triangle);
 }
 </string>

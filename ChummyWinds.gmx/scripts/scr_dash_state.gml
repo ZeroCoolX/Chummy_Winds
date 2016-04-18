@@ -1,7 +1,4 @@
 ///scr_dash_state()
-if(dead) {
-    
-}
 var collision_object = Wall;
 
  //set the length

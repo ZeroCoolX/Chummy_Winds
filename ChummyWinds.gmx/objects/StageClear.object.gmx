@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>///Create the stage clear alarm to last for 10 seconds
 depth = Player.depth - 50;
+previous_room = room;
 </string>
           </argument>
         </arguments>
@@ -52,12 +53,13 @@ depth = Player.depth - 50;
             <string>///Load next room
 
 if(room == rm_one){
-      room_goto(rm_two);
+    room_goto(rm_two);
 } else if(room == rm_two) {
     room_goto(rm_three);
 } else {
     room_goto(rm_start);
 }
+
 </string>
           </argument>
         </arguments>
@@ -80,7 +82,8 @@ if(room == rm_one){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>x = Player.x;
+            <string>depth = Player.depth - 50;
+x = Player.x;
 y = Player.y;
 </string>
           </argument>

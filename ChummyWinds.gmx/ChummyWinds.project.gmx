@@ -15,24 +15,40 @@
         <sprite>sprites\spr_player_death</sprite>
         <sprite>sprites\spr_player_death_trap</sprite>
         <sprite>sprites\spr_shadow</sprite>
+        <sprite>sprites\dude_dash_up</sprite>
+        <sprite>sprites\dude_dash_down</sprite>
+        <sprite>sprites\dude_dash_left</sprite>
+        <sprite>sprites\dude_dash_right</sprite>
       </sprites>
       <sprites name="Triangle">
         <sprite>sprites\spr_p_triangle_down</sprite>
         <sprite>sprites\spr_p_triangle_up</sprite>
         <sprite>sprites\spr_p_triangle_left</sprite>
         <sprite>sprites\spr_p_triangle_right</sprite>
+        <sprite>sprites\spr_tri_def_right</sprite>
+        <sprite>sprites\spr_tri_def_left</sprite>
+        <sprite>sprites\spr_tri_def_up</sprite>
+        <sprite>sprites\spr_tri_def_down</sprite>
       </sprites>
       <sprites name="Square">
         <sprite>sprites\spr_p_square_up</sprite>
         <sprite>sprites\spr_p_square_right</sprite>
         <sprite>sprites\spr_p_square_left</sprite>
         <sprite>sprites\spr_p_square_down</sprite>
+        <sprite>sprites\spr_s_deflect_right</sprite>
+        <sprite>sprites\spr_s_deflect_left</sprite>
+        <sprite>sprites\spr_s_deflect_down</sprite>
+        <sprite>sprites\spr_s_deflect_up</sprite>
       </sprites>
       <sprites name="Circle">
         <sprite>sprites\spr_p_circle_up</sprite>
         <sprite>sprites\spr_p_circle_down</sprite>
         <sprite>sprites\spr_p_circle_right</sprite>
         <sprite>sprites\spr_p_circle_left</sprite>
+        <sprite>sprites\spr_c_def_right</sprite>
+        <sprite>sprites\spr_c_def_down</sprite>
+        <sprite>sprites\spr_c_def_left</sprite>
+        <sprite>sprites\spr_c_def_up</sprite>
       </sprites>
     </sprites>
     <sprites name="Baddies">
@@ -81,6 +97,7 @@
     <background>background\controls</background>
     <background>background\chalkboard</background>
     <background>background\paint</background>
+    <background>background\credits</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">

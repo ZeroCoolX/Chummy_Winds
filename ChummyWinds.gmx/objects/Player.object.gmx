@@ -40,6 +40,7 @@ up_image = spr_player_up;
 down_image = spr_player_down;
 left_image = spr_player_left;
 right_image = spr_player_right;
+dash_image = dude_dash_right;
 should_dash = -1;
 dash_dir = 0;
 
