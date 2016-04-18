@@ -8,9 +8,12 @@ if(state != scr_player_hurt_state){
        state = scr_player_hurt_state;
        scr_player_face();//change them back
    } else {
+        dead = true;
         sprite_index = spr_player_death;
+        image_index = 0;
         instance_create(x, y, Trap);
         state = scr_dead;
+        image_speed = .2;
    }
 }
 

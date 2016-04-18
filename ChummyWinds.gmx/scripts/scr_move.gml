@@ -45,14 +45,20 @@ y += vspd;
 
 
 if(Input.dash_key){
-var dir = point_direction(x, y, target.x, target.y);
-      if(point_distance(x, y, target.x, target.y) < 150){
-       should_dash = 1;
-      }else{
-       should_dash = 0;
+if(instance_exists(PlayerStats)){
+   if(PlayerStats.stamina >= DASH_COST){
+       var dir = point_direction(x, y, target.x, target.y);
+             if(point_distance(x, y, target.x, target.y) < 200){
+              should_dash = 1;
+             }else{
+              should_dash = 0;
+             }
+             state = scr_dash_state;
+             alarm[0] = room_speed / 6; //frames per second - 30 for now. 8 is arbitrary
+             PlayerStats.stamina -= DASH_COST;
+           PlayerStats.alarm[0] = room_speed;
       }
-      state = scr_dash_state;
-      alarm[0] = room_speed / 6; //frames per second - 30 for now. 8 is arbitrary
+   }
 }
 
 if(point_distance(x, y, target.x, target.y) < 32){

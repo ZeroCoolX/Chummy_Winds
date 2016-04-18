@@ -1,9 +1,11 @@
 ///scr_dash_state()
-
+if(dead) {
+    
+}
 var collision_object = Wall;
 
  //set the length
- len = spd*10;
+ len = (spd - 1)*10;
  if(should_dash > 0){
    dash_dir = point_direction(x, y, target.x, target.y);
    should_dash = -1;
@@ -40,5 +42,9 @@ var collision_object = Wall;
 
 
 if (vspd = hspd) {
-state = scr_idle;
+    if(dead) {
+        state = scr_idle;
+    } else {
+        state = scr_dead;
+    }
 }

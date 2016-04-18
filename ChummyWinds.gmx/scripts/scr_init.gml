@@ -1,6 +1,6 @@
 ///scr_init
 
-spd = 3;
+spd = 4;
 acc = 0.5;
 
 //player speeds

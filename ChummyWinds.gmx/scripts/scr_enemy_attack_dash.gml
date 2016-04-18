@@ -13,7 +13,9 @@ var attack_spd = 6;
 if(attack_dist < 300){
    attack_spd = 8
 }
-
+if(Player.dead) {
+    attack_spd = 0;
+}
 var hspd =  lengthdir_x(attack_spd,direction);
 var vspd = lengthdir_y(attack_spd,direction);
 

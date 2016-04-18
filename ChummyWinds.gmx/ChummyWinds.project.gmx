@@ -51,12 +51,27 @@
       <sprite>sprites\pen</sprite>
       <sprite>sprites\red_meter</sprite>
       <sprite>sprites\blue_meter</sprite>
+      <sprite>sprites\spr_chalk_blue</sprite>
+      <sprite>sprites\spr_chalk_pink</sprite>
+      <sprite>sprites\spr_chalk_white</sprite>
+      <sprite>sprites\spr_chalk_yellow</sprite>
+      <sprite>sprites\spr_pen_obst</sprite>
+      <sprite>sprites\spr_apple</sprite>
+      <sprite>sprites\spr_paint_orange</sprite>
+      <sprite>sprites\spr_paint_pink</sprite>
+      <sprite>sprites\spr_paint_blue</sprite>
+      <sprite>sprites\spr_ruler</sprite>
+      <sprite>sprites\spr_brush_green</sprite>
+      <sprite>sprites\spr_brush_orange</sprite>
+      <sprite>sprites\spr_brush_pink</sprite>
     </sprites>
     <sprites name="Stats">
       <sprite>sprites\spr_deplete</sprite>
       <sprite>sprites\spr_health</sprite>
       <sprite>sprites\spr_tally_right</sprite>
       <sprite>sprites\spr_tally_left</sprite>
+      <sprite>sprites\spr_bummer</sprite>
+      <sprite>sprites\spr_clear</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -64,6 +79,8 @@
     <background>background\pause</background>
     <background>background\start</background>
     <background>background\controls</background>
+    <background>background\chalkboard</background>
+    <background>background\paint</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -127,20 +144,36 @@
     <objects name="Enviroment">
       <object>objects\Wall</object>
       <object>objects\Trap</object>
-      <object>objects\Pause_menu</object>
+      <object>objects\PauseMenu</object>
       <object>objects\ControlMenu</object>
-      <object>objects\Start_Menu</object>
+      <object>objects\StartMenu</object>
       <object>objects\Pencil</object>
       <object>objects\PaperClip</object>
       <object>objects\SelectTop</object>
       <object>objects\SelectBottom</object>
       <object>objects\SelectStart</object>
       <object>objects\SelectHowTo</object>
+      <object>objects\ChalkWhite</object>
+      <object>objects\ChalkBlue</object>
+      <object>objects\ChalkYellow</object>
+      <object>objects\ChalkPink</object>
+      <object>objects\PenObs</object>
+      <object>objects\Apple</object>
+      <object>objects\BrushPink</object>
+      <object>objects\BrushGreen</object>
+      <object>objects\BrushOrange</object>
+      <object>objects\Ruler</object>
+      <object>objects\PaintBlue</object>
+      <object>objects\PaintPink</object>
+      <object>objects\PaintOrange</object>
+      <object>objects\StageClear</object>
     </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_start</room>
     <room>rooms\rm_one</room>
+    <room>rooms\rm_two</room>
+    <room>rooms\rm_three</room>
     <room>rooms\rm_pause</room>
     <room>rooms\rm_control</room>
   </rooms>

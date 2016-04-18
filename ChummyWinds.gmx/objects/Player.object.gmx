@@ -31,6 +31,7 @@ hspd = 0;
 vspd = 0;
 state = 0;
 image_blend = make_colour_rgb(220, 150,150);
+dead = false;
 target = Mouse;
 cur_shape = SHAPE_NONE;
 scr_get_input();
@@ -205,7 +206,6 @@ if(cur_shape == SHAPE_NONE){
 }
 x = clamp(x, 0, room_width);
 y = clamp(y, 0, room_height);
-show_debug_message("scr_init is " + string(scr_init));
 script_execute(state);
 </string>
           </argument>
@@ -238,36 +238,38 @@ Rules for collisions:
 3) If the player is in a shape and touches an enemy who IS the same shape, the player and the enemy get deflected apart and no one takes damage
 4) If the player in in a shape and DASHES into an enemy who is in the same shape the player will KILL that enemy and gain a kill
 */
-if(cur_shape == SHAPE_NONE){
-   scr_hurt_player();
-}else{
-   if(state == scr_dash_state){//player is curently dashing
-     if(cur_shape == other.cur_shape){//player is the same shape as the thing its colliding with so kill the enemy
-         if(instance_exists(PlayerStats)){//add to the playerstats killcount too
-             PlayerStats.kills += 1;
+if(!dead) {
+    if(cur_shape == SHAPE_NONE){
+       scr_hurt_player();
+    }else{
+       if(state == scr_dash_state){//player is curently dashing
+         if(cur_shape == other.cur_shape){//player is the same shape as the thing its colliding with so kill the enemy
+             if(instance_exists(PlayerStats)){//add to the playerstats killcount too
+                 PlayerStats.kills -= 1;
+             }
+             with(other){//kill enemy player collided with
+                 instance_destroy();
+             }
+             alarm[1] = 50;
+        }else{//player is NOT the same shape but is dashing
+             scr_player_leave_2d();
+        }
+       }else{//player is not dashing
+         if(cur_shape == other.cur_shape){//but the player is the same shape so deflect
+             //deflect and change back
+             show_debug_message("dont hurt the player but the player and collider are same shape so deflect");
+             //change colour
+             with(other){
+                 image_blend = c_yellow;
+                 speed = -50;
+                 alarm[1] = room_speed/6;
+             }
+             scr_player_deflect();//change back
+         }else{//player is NOT the same shape and isn't dashing...so hurt them
+             scr_player_leave_2d();
          }
-         with(other){//kill enemy player collided with
-             instance_destroy();
-         }
-         alarm[1] = 50;
-    }else{//player is NOT the same shape but is dashing
-         scr_player_leave_2d();
+       }
     }
-   }else{//player is not dashing
-     if(cur_shape == other.cur_shape){//but the player is the same shape so deflect
-         //deflect and change back
-         show_debug_message("dont hurt the player but the player and collider are same shape so deflect");
-         //change colour
-         with(other){
-             image_blend = c_yellow;
-             speed = -50;
-             alarm[1] = room_speed/6;
-         }
-         scr_player_deflect();//change back
-     }else{//player is NOT the same shape and isn't dashing...so hurt them
-         scr_player_leave_2d();
-     }
-   }
 }
 </string>
           </argument>
@@ -293,7 +295,7 @@ if(cur_shape == SHAPE_NONE){
             <kind>1</kind>
             <string>///press event for dashing
 
-if(instance_exists(PlayerStats)){
+if(instance_exists(PlayerStats) &amp;&amp; !dead){
    if(PlayerStats.stamina &gt; DASH_COST){
        var dir = point_direction(x, y, target.x, target.y);
        if(point_distance(x, y, target.x, target.y) &lt; 150){
@@ -332,7 +334,9 @@ if(instance_exists(PlayerStats)){
             <string>if(cur_shape == SHAPE_NONE) {
     draw_sprite(spr_shadow, image_index, x, y+13);
 }
-draw_self();
+if(sprite_index != -1) {
+    draw_self();
+}
 </string>
           </argument>
         </arguments>
