@@ -5,7 +5,7 @@
   </Configs>
   <NewExtensions/>
   <sounds name="sound">
-    <sound>sound\snd_page_move_in</sound>
+    <sound>sound\snd_page_move</sound>
     <sound>sound\snd_kill_enemy</sound>
     <sound>sound\snd_death_lose</sound>
     <sound>sound\snd_damaged_1</sound>
@@ -13,7 +13,6 @@
     <sound>sound\snd_damaged_2</sound>
     <sound>sound\snd_damaged_4</sound>
     <sound>sound\snd_dash</sound>
-    <sound>sound\snd_page_move_out</sound>
     <sound>sound\snd_stage_clear</sound>
     <sounds name="Music">
       <sound>sound\snd_music_lvl_2</sound>
@@ -22,6 +21,10 @@
       <sound>sound\snd_music_ending</sound>
       <sound>sound\snd_music_menu</sound>
     </sounds>
+    <sound>sound\snd_deflect_1</sound>
+    <sound>sound\snd_deflect_2</sound>
+    <sound>sound\snd_deflect_3</sound>
+    <sound>sound\snd_shape_change</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Player">
@@ -73,6 +76,7 @@
       <sprite>sprites\spr_circle</sprite>
       <sprite>sprites\spr_square</sprite>
       <sprite>sprites\spr_triangle</sprite>
+      <sprite>sprites\spr_destroy</sprite>
     </sprites>
     <sprites name="Enviroment">
       <sprite>sprites\spr_pencil</sprite>
@@ -98,6 +102,10 @@
       <sprite>sprites\spr_brush_green</sprite>
       <sprite>sprites\spr_brush_orange</sprite>
       <sprite>sprites\spr_brush_pink</sprite>
+      <sprite>sprites\kidding</sprite>
+      <sprite>sprites\wave</sprite>
+      <sprite>sprites\shane</sprite>
+      <sprite>sprites\bummer_speak</sprite>
     </sprites>
     <sprites name="Stats">
       <sprite>sprites\spr_deplete</sprite>
@@ -116,6 +124,7 @@
     <background>background\chalkboard</background>
     <background>background\paint</background>
     <background>background\credits</background>
+    <background>background\thanks</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -207,7 +216,12 @@
       <object>objects\Recognitionizer</object>
       <object>objects\try_again</object>
       <object>objects\StageLose</object>
+      <object>objects\obj_shane</object>
+      <object>objects\obj_wave</object>
+      <object>objects\obj_kidding</object>
+      <object>objects\bumme_text</object>
     </objects>
+    <object>objects\baddie_death</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_start</room>

@@ -7,7 +7,11 @@ for(var i = 0; i < baddie_count; i++){
   while(true){
        xr = irandom_range(10, room_width);
        yr = irandom_range(10, room_height);
-       if(!place_meeting(xr, yr, Wall) && !place_meeting(xr, yr, Player)){
+       if(!place_meeting(xr, yr, Wall) && !place_meeting(xr, yr, Player) &&
+       !place_meeting(xr+350, yr, Player) &&
+       !place_meeting(xr-350, yr, Player) &&
+       !place_meeting(xr, yr+350, Player) &&
+       !place_meeting(xr, yr-350, Player)){
            break;
        }
   }

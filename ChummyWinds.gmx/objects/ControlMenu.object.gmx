@@ -84,6 +84,7 @@ enter_key = keyboard_check_pressed(vk_enter);
 space_key = keyboard_check_pressed(vk_space);
 if (alarm[0] &lt;= 0) {
    if (enter_key || space_key) {
+    audio_play_sound(snd_page_move, 111, false);
        show_debug_message("enter to key")
        switch (menu_index) {
            case 0:

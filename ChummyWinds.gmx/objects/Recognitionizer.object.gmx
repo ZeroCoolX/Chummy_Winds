@@ -26,16 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>///Let everyone recognize he who put in literally days of effort ;)
-/// Initialize the Menu
-title1 = "Wave at your screen to";
-title2 = "return to the start menu"
-option[0] =  "Just kidding."
-option[1] = "Wouldn't that be awesome though?";
-option[2] = "press any button...";
-//Menu Index
-menu_index = 0;
 
-alarm[0] = 150
+alarm[0] = 100
 
 </string>
           </argument>
@@ -60,6 +52,7 @@ alarm[0] = 150
           <argument>
             <kind>1</kind>
             <string>///show text
+instance_create(258,316,obj_kidding);
 </string>
           </argument>
         </arguments>
@@ -88,53 +81,11 @@ if(keyboard_check(vk_anykey)){
         if(audio_is_playing(snd_music_ending)){
         audio_stop_sound(snd_music_ending);
     }
-    audio_play_sound(snd_music_menu, 105, true);
+    audio_em = audio_emitter_create();
+    audio_emitter_gain(audio_em, 0.3);
+    audio_play_sound_on(audio_em, snd_music_menu, 101, true);
     room_goto(rm_start);
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="64">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Draw the menu
-var xx = display_get_gui_width()/6;
-var yy = display_get_gui_height()/3;
-
-draw_set_halign(fa_center);
-draw_text(xx, yy-64, title1);
-draw_text(xx, yy-32, title2);
-
-//xx = display_get_gui_width();
-
-for(var i = 0; i &lt;= array_length_1d(option)-1; i++){
-    draw_set_colour(c_black);
-    if(i == menu_index){
-        draw_set_colour(c_black);
-    }
-    if(alarm[0] &lt;= 0){
-        draw_text(xx, yy+(i*32), option[i]);
-    }
-}
-
-draw_set_colour(c_black);
-draw_set_halign(fa_left);
 </string>
           </argument>
         </arguments>

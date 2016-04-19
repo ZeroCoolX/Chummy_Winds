@@ -131,6 +131,7 @@ if (alarm[0] &lt;= 0) {
         switch (menu_index) {
            case 0:
                //audio_play_sound(snd_page_move_out, 90, false);
+               global.pausing = false;
                room_goto(Input.previous_room);
                break;
                

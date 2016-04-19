@@ -8,62 +8,6 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="0" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Let everyone recognize he who put in literally days of effort ;)
-/// Initialize the Menu
-title1 = "Don't give up now!";
-title2 = "Why pay attention in class when you have baddies to erase!"
-option[0] =  "Give it another go!"
-
-//Menu Index
-menu_index = 0;
-
-
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///show text
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -92,48 +36,6 @@ if(keyboard_check(vk_anykey)){
     audio_play_sound_on(audio_em, snd_music_menu, 101, true);
     room_goto(rm_start);
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="64">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Draw the menu
-var xx = display_get_gui_width()/2;
-var yy = display_get_gui_height()/2+100;
-
-draw_set_halign(fa_center);
-draw_text(xx, yy-64, title1);
-draw_text(xx, yy-32, title2);
-
-//xx = display_get_gui_width();
-
-for(var i = 0; i &lt;= array_length_1d(option)-1; i++){
-    draw_set_colour(c_white);
-    if(i == menu_index){
-        draw_set_colour(c_white);
-    }
-        draw_text(xx, yy+(i*32), option[i]);
-}
-
-draw_set_colour(c_white);
-draw_set_halign(fa_left);
 </string>
           </argument>
         </arguments>

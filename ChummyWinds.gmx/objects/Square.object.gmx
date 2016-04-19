@@ -162,8 +162,10 @@ script_execute(state);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>should_respawn = 0;
-instance_destroy();
+            <string>if(!global.pausing){
+    should_respawn = 0;
+    instance_destroy();
+}
 </string>
           </argument>
         </arguments>

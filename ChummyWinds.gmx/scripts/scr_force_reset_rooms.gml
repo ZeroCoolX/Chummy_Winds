@@ -65,7 +65,7 @@ show_debug_message("resetting 1");
         if(audio_is_playing(snd_music_lvl_2)){
             audio_stop_sound(snd_music_lvl_2);
         }
-        audio_emitter_gain(audio_em, 0.5);
+        audio_emitter_gain(audio_em, 0.2);
         audio_play_sound_on(audio_em, snd_music_lvl_3, true, 105);
         //manually run rm_one's create code to "reset" the presistent room
         //this determines how many baddies can be in the room at one point

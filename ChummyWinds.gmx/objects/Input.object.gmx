@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>/// Initialize the input object
 scr_get_input();
+global.pausing = false;
 </string>
           </argument>
         </arguments>
@@ -54,16 +55,16 @@ scr_get_input();
 
 
 // Pause the Game
-if (pause_key) {
+if (pause_key &amp;&amp; !instance_exists(StageClear)) {
+    global.pausing = true;
    if (room != rm_pause) {
        if (instance_exists(Player)) {
            Player.persistent = false;
        }
-       //audio_play_sound(snd_page_move_in, 92, false);
        previous_room = room;
        room_goto(rm_pause);
    } else {
-       //audio_play_sound(snd_page_move_out, 91, false);
+       audio_play_sound(snd_page_move, 91, false);
        room_goto(previous_room);
    }
    Input.pause_key = false;

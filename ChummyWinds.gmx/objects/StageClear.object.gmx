@@ -66,9 +66,10 @@ if(room == rm_one){
 } else {
     if(audio_is_playing(snd_music_lvl_3)){
         audio_stop_sound(snd_music_lvl_3);
-        audio_emitter_gain(audio_em, 0.3);
-        audio_play_sound_on(audio_em, snd_music_ending, true, 104);
     }
+    audio_em = audio_emitter_create();
+    audio_emitter_gain(audio_em, 0.3);
+    audio_play_sound_on(audio_em, snd_music_ending, true, 104);
     room_goto(rm_thanks);
 }
 

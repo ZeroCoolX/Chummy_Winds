@@ -232,7 +232,10 @@ if(cur_shape == SHAPE_NONE){
 }
 x = clamp(x, 0, room_width);
 y = clamp(y, 0, room_height);
-script_execute(state);
+
+if(!dead || (dead &amp;&amp; state = scr_dead)){
+    script_execute(state);
+}
 </string>
           </argument>
         </arguments>
@@ -265,8 +268,8 @@ Rules for collisions:
 4) If the player in in a shape and DASHES into an enemy who is in the same shape the player will KILL that enemy and gain a kill
 */
 if(!dead) {
+    randomize();
     if(cur_shape == SHAPE_NONE){
-        randomize();
         var rand_hit_snd = irandom_range(1,4);
         switch(rand_hit_snd){
             case 1:
@@ -291,10 +294,26 @@ if(!dead) {
              }
              audio_play_sound(snd_kill_enemy,94, false);
              with(other){//kill enemy player collided with
+                  var badds = instance_create(x, y, baddie_death);
+                    badds.alarm[0] = 3;
                  instance_destroy();
              }
              alarm[1] = 50;
         }else{//player is NOT the same shape but is dashing
+        var rand_out1_snd = irandom_range(1,3);
+        audio_em = audio_emitter_create();
+        audio_emitter_gain(audio_em, 0.5);
+        switch(rand_out1_snd){
+            case 1:
+                audio_play_sound_on(audio_em, snd_deflect_1,false, 120);
+                break;
+            case 2:
+                audio_play_sound_on(audio_em, snd_deflect_2,false, 119);
+            break;
+            case 3:
+                audio_play_sound_on(audio_em ,snd_deflect_2,false, 118);
+            break;
+        }
              scr_player_leave_2d();
         }
        }else{//player is not dashing
@@ -307,8 +326,36 @@ if(!dead) {
                  speed = -50;
                  alarm[1] = room_speed/6;
              }
+        var rand_def_snd = irandom_range(1,3);
+        audio_em = audio_emitter_create();
+        audio_emitter_gain(audio_em, 0.5);
+        switch(rand_def_snd){
+            case 1:
+                audio_play_sound_on(audio_em ,snd_deflect_1,false, 120);
+                break;
+            case 2:
+                audio_play_sound_on(audio_em ,snd_deflect_2,false, 119);
+            break;
+            case 3:
+                audio_play_sound_on(audio_em ,snd_deflect_2,false, 118);
+            break;
+        }
              scr_player_deflect();//change back
          }else{//player is NOT the same shape and isn't dashing...so hurt them
+        var rand_out2_snd = irandom_range(1,3);
+        audio_em = audio_emitter_create();
+        audio_emitter_gain(audio_em, 0.5);
+        switch(rand_out2_snd){
+            case 1:
+                audio_play_sound_on(audio_em ,snd_deflect_1,false, 120);
+                break;
+            case 2:
+                audio_play_sound_on(audio_em,snd_deflect_2,false, 119);
+            break;
+            case 3:
+                audio_play_sound_on(audio_em ,snd_deflect_2,false, 118);
+            break;
+        }
              scr_player_leave_2d();
          }
        }
@@ -358,6 +405,32 @@ if(instance_exists(PlayerStats) &amp;&amp; !dead){
         </arguments>
       </action>
     </event>
+    <event eventtype="7" enumb="7">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///go to try again
+if(state == scr_dead){
+   // room_goto(rm_try_again);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="7" enumb="5">
       <action>
         <libid>1</libid>
@@ -376,8 +449,9 @@ if(instance_exists(PlayerStats) &amp;&amp; !dead){
           <argument>
             <kind>1</kind>
             <string>///kill myself
-
-instance_destroy();
+if(!global.pausing){
+    instance_destroy();
+}
 </string>
           </argument>
         </arguments>
@@ -400,7 +474,7 @@ instance_destroy();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(cur_shape == SHAPE_NONE) {
+            <string>if(cur_shape == SHAPE_NONE &amp;&amp; !dead) {
     draw_sprite(spr_shadow, image_index, x, y+13);
 }
 if(sprite_index != -1) {

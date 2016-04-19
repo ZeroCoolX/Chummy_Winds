@@ -33,7 +33,6 @@
     } if(audio_is_playing(snd_music_lvl_3)){
         audio_stop_sound(snd_music_lvl_3);
     }
-audio_play_sound(snd_death_lose, 106, false);
 previous_room = room;
 </string>
           </argument>

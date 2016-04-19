@@ -30,16 +30,13 @@ with(Triangle){
     instance_destroy();
 }
         
-        alarm[5] = 100;
+        alarm[5] = 60;
         dead = true;
         sprite_index = spr_player_death;
         image_index = 0;
         instance_create(x, y, Trap);
         state = scr_dead;
         image_speed = .2;
-        //if(instance_exists(BaddieParent)){
-
-        //}
    }
 }
 
