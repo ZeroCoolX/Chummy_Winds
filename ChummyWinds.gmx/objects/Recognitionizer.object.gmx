@@ -77,7 +77,7 @@ instance_create(258,316,obj_kidding);
             <kind>1</kind>
             <string>///Control the credits to go back to the start
 ///Control the menu 
-if(keyboard_check(vk_anykey)){
+if(keyboard_check(vk_enter) || keyboard_check(vk_space)){
         if(audio_is_playing(snd_music_ending)){
         audio_stop_sound(snd_music_ending);
     }

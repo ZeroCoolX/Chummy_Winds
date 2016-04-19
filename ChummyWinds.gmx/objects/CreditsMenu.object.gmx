@@ -28,7 +28,7 @@
             <string>/// Initialize the Menu
 
 
-alarm[0] = 200;
+alarm[0] = 100;
 </string>
           </argument>
         </arguments>
