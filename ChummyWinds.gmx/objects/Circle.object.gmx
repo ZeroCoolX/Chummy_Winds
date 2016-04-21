@@ -60,8 +60,8 @@ state = scr_enemy_init;
             <string>///Destroy Event
 if(should_respawn &gt; 0){
     while(true){
-           xr = irandom_range(10, room_width);
-           yr = irandom_range(10, room_height);
+           xr = round(irandom_range(10, room_width));
+           yr = round(irandom_range(10, room_height));
            if(!place_meeting(xr, yr, Wall) &amp;&amp; !place_meeting(xr, yr, Player)){
                break;
            }
@@ -144,6 +144,9 @@ state = scr_enemy_idle;
             <string>//Step Event
 event_inherited();
 depth = -y;
+if(instance_exists(Player)) {
+    target = Player;
+}
 script_execute(state);
 
 </string>

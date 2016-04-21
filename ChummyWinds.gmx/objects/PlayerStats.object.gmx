@@ -135,10 +135,8 @@ if(kills == 0){
             <kind>1</kind>
             <string>///create player
 if(!instance_exists(Player)){
-show_debug_message("player instance didnt exist");
     instance_create(640, 256, Player);
 }else if(instance_exists(Player) &amp;&amp; Player.dead){
-show_debug_message("destroying player then creating");
      with(Player){
         instance_destroy();
     }

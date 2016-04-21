@@ -5,15 +5,18 @@ friction = 0;
 image_speed = .35;
 ///shape changing
 if(Input.shape_one){
-    Player.cur_shape = SHAPE_TRIANGLE;
+    cur_shape = SHAPE_TRIANGLE;
     scr_shape(spr_p_triangle_right, spr_p_triangle_left, spr_p_triangle_up, spr_p_triangle_down);
+    show_debug_message("triangle");
 }
 if(Input.shape_two){
-    Player.cur_shape = SHAPE_CIRCLE;
+    cur_shape = SHAPE_CIRCLE;
     scr_shape(spr_p_circle_right, spr_p_circle_left, spr_p_circle_up, spr_p_circle_down);
+    show_debug_message("circle");
 }
 if(Input.shape_three){
-    Player.cur_shape = SHAPE_SQUARE;
+    cur_shape = SHAPE_SQUARE;
+    show_debug_message("square");
     scr_shape(spr_p_square_right, spr_p_square_left, spr_p_square_up, spr_p_square_down);
 }
 

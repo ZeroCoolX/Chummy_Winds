@@ -62,7 +62,7 @@
     <instance objName="ChalkBlue" x="1080" y="1790" name="inst_E0924C8A" locked="0" code="" scaleX="1.22916662693024" scaleY="2.42000007629395" colour="4294967295" rotation="300"/>
     <instance objName="ChalkYellow" x="1250" y="1020" name="inst_18462E14" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ChalkPink" x="1020" y="800" name="inst_4CECCF18" locked="0" code="" scaleX="0.810000002384186" scaleY="1.5326087474823" colour="4294967295" rotation="93"/>
-    <instance objName="PenObs" x="430" y="190" name="inst_5E22627B" locked="0" code="" scaleX="0.8299999833107" scaleY="0.61904764175415" colour="4294967295" rotation="355"/>
+    <instance objName="PenObs" x="430" y="190" name="inst_5E22627B" locked="0" code="" scaleX="0.829999983310699" scaleY="0.61904764175415" colour="4294967295" rotation="355"/>
     <instance objName="Input" x="260" y="380" name="inst_BA07D52A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Apple" x="1770" y="630" name="inst_C0328487" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>

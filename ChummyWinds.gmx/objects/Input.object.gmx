@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>/// Initialize the input object
+randomize();
 scr_get_input();
 global.pausing = false;
 </string>
@@ -52,7 +53,6 @@ global.pausing = false;
             <kind>1</kind>
             <string>/// Initialize the input object
 scr_get_input();
-
 
 // Pause the Game
 if (pause_key &amp;&amp; !instance_exists(StageClear)) {

@@ -30,7 +30,7 @@ should_respawn = 1;
 cur_shape = SHAPE_SQUARE;
 face = 0;
 xaxis = true;
-spd = irandom_range(5,15);
+spd = round(irandom_range(5,15));
 state = scr_square_get_face;
 </string>
           </argument>
@@ -57,8 +57,8 @@ state = scr_square_get_face;
             <string>///Destroy Event
 if(should_respawn &gt; 0){
     while(true){
-           xr = irandom_range(10, room_width);
-           yr = irandom_range(10, room_height);
+           xr = round(irandom_range(10, room_width));
+           yr = round(irandom_range(10, room_height));
            if(!place_meeting(xr, yr, Wall) &amp;&amp; !place_meeting(xr, yr, Player)){
                break;
            }
@@ -139,6 +139,9 @@ speed += 50;
             <kind>1</kind>
             <string>///execute state
 event_inherited();
+if(instance_exists(Player)) {
+    target = Player;
+}
 script_execute(state);
 </string>
           </argument>

@@ -1,5 +1,5 @@
 ///scr_square_get_face()
-chance = irandom_range(0,1);
+chance = round(irandom_range(0,1));
 
 if (xaxis = true){
    xaxis = false;
@@ -17,6 +17,5 @@ if (xaxis = true){
    }    
 }
 
-show_debug_message(face);
 alarm[0] = 30;
 state = scr_square_move;

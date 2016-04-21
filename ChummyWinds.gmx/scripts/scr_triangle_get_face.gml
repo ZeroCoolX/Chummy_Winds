@@ -11,7 +11,5 @@ if ((x > Player.x) && (y > Player.y)){
    face = 3;
 }
 
-
-show_debug_message(face);
 alarm[0] = 30;
 state = scr_triangle_move;

@@ -35,7 +35,7 @@ dead = false;
 target = Mouse;
 cur_shape = SHAPE_NONE;
 scr_get_input();
-state = scr_init(Wall);
+state = scr_init;
 up_image = spr_player_up;
 down_image = spr_player_down;
 left_image = spr_player_left;
@@ -225,6 +225,11 @@ state = scr_move;
           <argument>
             <kind>1</kind>
             <string>//Step Event
+
+//this is rediculous, html5 buggy ass shit
+Player.x = x;
+Player.y = y;
+
 if(cur_shape == SHAPE_NONE){
     depth = -y;
 }else{
@@ -232,9 +237,10 @@ if(cur_shape == SHAPE_NONE){
 }
 x = clamp(x, 0, room_width);
 y = clamp(y, 0, room_height);
-
-if(!dead || (dead &amp;&amp; state = scr_dead)){
+if(!dead){
     script_execute(state);
+} else {
+
 }
 </string>
           </argument>
@@ -267,10 +273,10 @@ Rules for collisions:
 3) If the player is in a shape and touches an enemy who IS the same shape, the player and the enemy get deflected apart and no one takes damage
 4) If the player in in a shape and DASHES into an enemy who is in the same shape the player will KILL that enemy and gain a kill
 */
+show_debug_message(string(cur_shape));
 if(!dead) {
-    randomize();
     if(cur_shape == SHAPE_NONE){
-        var rand_hit_snd = irandom_range(1,4);
+        var rand_hit_snd = round(irandom_range(1,4));
         switch(rand_hit_snd){
             case 1:
                 audio_play_sound(snd_damaged_1,100, false);
@@ -300,7 +306,7 @@ if(!dead) {
              }
              alarm[1] = 50;
         }else{//player is NOT the same shape but is dashing
-        var rand_out1_snd = irandom_range(1,3);
+        var rand_out1_snd = round(irandom_range(1,3));
         audio_em = audio_emitter_create();
         audio_emitter_gain(audio_em, 0.5);
         switch(rand_out1_snd){
@@ -319,14 +325,13 @@ if(!dead) {
        }else{//player is not dashing
          if(cur_shape == other.cur_shape){//but the player is the same shape so deflect
              //deflect and change back
-             show_debug_message("dont hurt the player but the player and collider are same shape so deflect");
              //change colour
              with(other){
                  image_blend = c_yellow;
                  speed = -50;
                  alarm[1] = room_speed/6;
              }
-        var rand_def_snd = irandom_range(1,3);
+        var rand_def_snd = round(irandom_range(1,3));
         audio_em = audio_emitter_create();
         audio_emitter_gain(audio_em, 0.5);
         switch(rand_def_snd){
@@ -342,7 +347,7 @@ if(!dead) {
         }
              scr_player_deflect();//change back
          }else{//player is NOT the same shape and isn't dashing...so hurt them
-        var rand_out2_snd = irandom_range(1,3);
+        var rand_out2_snd = round(irandom_range(1,3));
         audio_em = audio_emitter_create();
         audio_emitter_gain(audio_em, 0.5);
         switch(rand_out2_snd){
@@ -474,7 +479,8 @@ if(!global.pausing){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(cur_shape == SHAPE_NONE &amp;&amp; !dead) {
+            <string>///Draw the shadow
+if(cur_shape == SHAPE_NONE &amp;&amp; !dead) {
     draw_sprite(spr_shadow, image_index, x, y+13);
 }
 if(sprite_index != -1) {

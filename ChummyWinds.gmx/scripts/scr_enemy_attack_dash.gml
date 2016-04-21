@@ -5,9 +5,9 @@ friction = 0;
 
 var collision_object = Circle;
 
-direction = point_direction(x, y, target.x, target.y);
+direction = point_direction(x, y, Player.x, Player.y);
 
-var attack_dist = point_distance(x, y, target.x, target.y);
+var attack_dist = point_distance(x, y, Player.x, Player.y);
 var attack_spd = 6;
 
 if(attack_dist < 300){
@@ -37,7 +37,7 @@ if(place_meeting(x, y+vspd, collision_object)){
 }
 y += vspd;
 
-var attack_dist = point_distance(x, y, target.x, target.y);
+var attack_dist = point_distance(x, y, Player.x, Player.y);
 if(attack_dist < 600){
    alarm[0] = room_speed/2;
    state = scr_enemy_attack_dash;
